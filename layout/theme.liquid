@@ -5,6 +5,12 @@
     {% render 'css-variables' %}
 
     {% # Load and preload the critical CSS %}
+     <style>
+      :root{
+        --base-font: {{ settings.base_font }} {{ settings.base_font_size }}px;
+        --heading-font: {{ settings.heading_font }} calc({{ settings.base_font_size }}px * {{ settings.heading_font_multiplier }});
+      }
+     </style>
     {{ 'output.css' | asset_url | stylesheet_tag: preload: true }}
 
     {% # Social, title, etc. %}
