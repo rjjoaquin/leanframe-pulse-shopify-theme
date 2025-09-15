@@ -9,11 +9,30 @@
     "collections": "Collections",
     "collection_card": "Collection card",
     "collections_grid": "Collections grid",
-    "colors": "Colors",
+    "colors": {
+      "header_content": "Colors",
+      "color_scheme": "Color Scheme",
+      "background": "Background",
+      "background_gradient": "Background Gradient",
+      "background_gradient_info": "Leave unset to default to simple color",
+      "text": "Text",
+      "button": "Button / Accent",
+      "button_label": "Button Text",
+      "secondary_button_label": "Secondary Button Text or Links",
+      "shadow": "Shadow or Borders"
+    },
     "column": "Column",
     "content": "Content",
     "custom_section": "Custom section",
-    "fonts": "Fonts",
+    "fonts": {
+      "header_content": "Fonts",
+      "base": "Base or Body font",
+      "heading": "Heading font",
+      "base_size": "Base or Body font size",
+      "heading_multiplier": "Heading font scale",
+      "heading_multiplier_info": "Example: If base font is 16px, the set heading font multiplier is 1.4. Then the heading font size is 16px * 1.4"
+    },
+
     "footer": "Footer",
     "group": "Group",
     "header": "Header",
@@ -71,6 +90,6 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
-    },
+    }
   }
 }

@@ -1,6 +1,6 @@
 # LeanFrame Pulse v1.0
 
-Shopify Theme with Tailwind and AlpineJs\
+Shopify Theme with Tailwind, Lucide Icons, and AlpineJs\
 Modern design, without the bloat.
 
 ## How to Initialize
