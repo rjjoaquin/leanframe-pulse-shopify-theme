@@ -9,7 +9,7 @@ Modern design, without the bloat.
 2. `npm install -D tailwindcss @tailwindcss/postcss autoprefixer postcss postcss-cli`
 3. Create the postcss.config.mjs file
    \
-   Using code below\
+   Using code below
 
 ```export default {
   plugins: {
@@ -32,7 +32,7 @@ Modern design, without the bloat.
 Use Tailwind as much as possible. Otherwise follow the below rules:\
 
 1. Use the `{% stylesheet %}` liquid tag. \
-   Otherwise, use Alpine x-init or (not recommended) inject the CSS `<link />` on a section through Custom JS. Load the CSS stylesheet via CSS:\
+   Otherwise, use Alpine x-init or (not recommended) inject the CSS `<link />` on a section through Custom JS. Load the CSS stylesheet via CSS:
 
 ```if (!document.querySelector('link[href="filesource"]')) {
   document.head.insertAdjacentHTML('beforeend', `<link data-added-css rel="stylesheet" href="filesource" />`)

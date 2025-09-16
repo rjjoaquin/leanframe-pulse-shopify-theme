@@ -2,15 +2,8 @@
 <html lang="{{ request.locale.iso_code }}">
   <head>
     {% # Inlined CSS Variables %}
-    {% render 'css-variables' %}
-
+    {% render 'css-variables.liquid' %}
     {% # Load and preload the critical CSS %}
-     <style>
-      :root{
-        --base-font: {{ settings.base_font }} {{ settings.base_font_size }}px;
-        --heading-font: {{ settings.heading_font }} calc({{ settings.base_font_size }}px * {{ settings.heading_font_multiplier }});
-      }
-     </style>
     {{ 'output.css' | asset_url | stylesheet_tag: preload: true }}
 
     {% # Social, title, etc. %}
@@ -20,7 +13,7 @@
     <script type="module" src="{{ 'modules.mjs' | asset_url }}" async></script>
   </head>
 
-  <body>
+  <body class="font-base bg-(--background-color)">
     {% sections 'header-group' %}
 
     {{ content_for_layout }}

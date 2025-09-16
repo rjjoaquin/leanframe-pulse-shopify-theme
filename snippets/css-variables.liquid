@@ -1,18 +1,41 @@
+{% liquid 
+  assign heading_one_font_multiplier = settings.heading_font_multiplier
+  assign heading_two_font_multiplier = settings.heading_font_multiplier
+  assign heading_three_font_multiplier = settings.heading_font_multiplier
+  if settings.heading_font_multiplier <= 1.2
+    assign heading_one_font_multiplier = settings.heading_font_multiplier | plus: 0.2
+    assign heading_three_font_multiplier = settings.heading_font_multiplier | minus: 0.2
+  elsif settings.heading_font_multiplier >= 2.0
+    assign heading_two_font_multiplier = settings.heading_font_multiplier | minus: 0.5
+    assign heading_three_font_multiplier = settings.heading_font_multiplier | minus: 0.75
+  endif
+%}
+
 {% style %}
   {% # Loads all font variantions with display: swap %}
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.base_font | font_face: font_display: 'swap' }}
+  {{ settings.base_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.base_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.base_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.heading_font | font_face: font_display: 'swap' }}
+  {{ settings.heading_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.heading_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.heading_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
 
   :root {
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
-    --page-width: {{ settings.max_page_width }};
-    --page-margin: {{ settings.min_page_margin }}px;
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+    /* typography */
+    --base-font: {{ settings.base_font.style }} {{ settings.base_font.weight }} {{ settings.base_font_size }}px/1.5 {{ settings.base_font.family }}, {{ settings.base_font.fallback_families }};
+    --base-font-size: {{ settings.base_font_size }};
+    --heading-one-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_one_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
+    --heading-two-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_two_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
+    --heading-three-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_three_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
+    /* colors */
+    --background-color: {{ settings.color_scheme.settings.background }};
+    --background-gradient: {{ settings.color_scheme.settings.background_gradient }};
+    --text-color: {{ settings.color_scheme.settings.text }};
+    --button-color: {{ settings.color_scheme.settings.button }};
+    --button-label-color: {{ settings.color_scheme.settings.button_label }};
+    --secondary-button-label-color: {{ settings.color_scheme.settings.secondary_button_label }};
+    --shadow-color: {{ settings.color_scheme.settings.shadow }};
   }
 {% endstyle %}

@@ -7,9 +7,20 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-slate-200: oklch(92.9% 0.013 255.508);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --font-base: var(--base-font);
+    --font-base-size: var(--base-font-size);
+    --font-one-heading: var(--heading-one-font);
+    --font-two-heading: var(--heading-two-font);
+    --font-three-heading: var(--heading-three-font);
+    --background-color: var(--background-color);
+    --background-gradient: var(--background-gradient);
+    --text-color: var(--text-color);
+    --button-color: var(--button-color);
+    --button-label-color: var(--button-label-color);
+    --secondary-button-label-color: var(--secondary-button-label-color);
+    --shadow-color: var(--shadow-color);
   }
 }
 @layer base {
@@ -199,6 +210,12 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .bg-\(--background-color\) {
+    background-color: var(--background-color);
+  }
+  .font-base {
+    font-family: var(--font-base);
+  }
   .italic {
     font-style: italic;
   }
@@ -208,6 +225,27 @@
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+}
+@layer base {
+  h1 {
+    font: var(--font-one-heading);
+  }
+  h2 {
+    font: var(--font-two-heading);
+  }
+  h3 {
+    font: var(--font-three-heading);
+  }
+  h4 {
+    font: var(--font-three-heading);
+    font-size: var(--font-base-size);
+  }
+  h5 {
+    font: var(--base-font);
+  }
+  h6 {
+    font: var(--base-font);
   }
 }
 @property --tw-rotate-x {

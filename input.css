@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@theme {
+  --font-base: var(--base-font);
+  --font-base-size: var(--base-font-size);
+  --font-one-heading: var(--heading-one-font);
+  --font-two-heading: var(--heading-two-font);
+  --font-three-heading: var(--heading-three-font);
+  --background-color: var(--background-color);
+  --background-gradient: var(--background-gradient);
+  --text-color: var(--text-color);
+  --button-color: var(--button-color);
+  --button-label-color: var(--button-label-color);
+  --secondary-button-label-color: var(--secondary-button-label-color);
+  --shadow-color: var(--shadow-color);
+}
+
+@layer base {
+  h1 {
+    font: var(--font-one-heading);
+  }
+  h2 {
+    font: var(--font-two-heading);
+  }
+  h3 {
+    font: var(--font-three-heading);
+  }
+  h4 {
+    font: var(--font-three-heading);
+    font-size: var(--font-base-size);
+  }
+  h5 {
+    font: var(--base-font);
+  }
+  h6 {
+    font: var(--base-font);
+  }
+}
