@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --container-2xl: 42rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --font-base: var(--base-font);
@@ -21,6 +22,7 @@
     --button-label-color: var(--button-label-color);
     --secondary-button-label-color: var(--secondary-button-label-color);
     --shadow-color: var(--shadow-color);
+    --button-border-radius: var(--button-border-radius);
   }
 }
 @layer base {
@@ -188,6 +190,27 @@
   .fixed {
     position: fixed;
   }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .block {
     display: block;
   }
@@ -199,6 +222,18 @@
   }
   .grid {
     display: grid;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
+  }
+  .max-w-\[80\%\] {
+    max-width: 80%;
+  }
+  .max-w-\[95\%\] {
+    max-width: 95%;
+  }
+  .max-w-full {
+    max-width: 100%;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -246,6 +281,15 @@
   }
   h6 {
     font: var(--base-font);
+  }
+  button, a.button, input[type="submit"], input[type="button"] {
+    border-radius: var(--button-border-radius);
+    background: var(--button-color);
+    color: var(--button-label-color);
+  }
+  button.secondary, a.button.secondary, input.secondary[type="submit"], input.secondary[type="button"] {
+    background: var(--background-color);
+    color: var(--secondary-button-label-color);
   }
 }
 @property --tw-rotate-x {

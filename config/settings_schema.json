@@ -121,5 +121,68 @@
         }
       }
     ]
-  }
+  },
+  {
+    "name": "t:general.container.header_content",
+    "settings": [
+      {
+        "type": "select",
+        "id": "container_width",
+        "options": [
+          {
+            "value": "max-w-2xl",
+            "label": "t:general.container.narrow"
+          },
+          {
+            "value": "max-w-[80%]",
+            "label": "t:general.container.regular"
+          },
+          {
+            "value": "max-w-[95%]",
+            "label": "t:general.container.wide"
+          },
+          {
+            "value": "max-w-full",
+            "label": "t:general.container.full"
+          }
+        ],
+        "label": "t:general.container.label",
+        "default": "max-w-[80%]"
+      }
+    ]
+  },
+
+  {
+    "name": "t:general.buttons.header_content",
+    "settings": [
+      {
+        "type": "select",
+        "id": "button_border_radius",
+        "options": [
+          {
+            "value": "0",
+            "label": "t:general.buttons.border_radius.none"
+          },
+          {
+            "value": "0.25rem",
+            "label": "t:general.buttons.border_radius.small"
+          },
+          {
+            "value": "0.375rem",
+            "label": "t:general.buttons.border_radius.medium"
+          },
+          {
+            "value": "0.75rem",
+            "label": "t:general.buttons.border_radius.extra_large"
+          },
+          {
+            "value": "50%",
+            "label": "t:general.buttons.border_radius.full"
+          }
+        ],
+        "label": "t:general.buttons.border_radius.label",
+        "default": "0.375rem"
+      }
+    ]
+  },
 ]

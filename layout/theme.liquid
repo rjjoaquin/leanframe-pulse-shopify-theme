@@ -2,7 +2,7 @@
 <html lang="{{ request.locale.iso_code }}">
   <head>
     {% # Inlined CSS Variables %}
-    {% render 'css-variables.liquid' %}
+    {% render 'css-variables' %}
     {% # Load and preload the critical CSS %}
     {{ 'output.css' | asset_url | stylesheet_tag: preload: true }}
 

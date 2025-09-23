@@ -13,6 +13,7 @@
   --button-label-color: var(--button-label-color);
   --secondary-button-label-color: var(--secondary-button-label-color);
   --shadow-color: var(--shadow-color);
+  --button-border-radius: var(--button-border-radius);
 }
 
 @layer base {
@@ -34,5 +35,14 @@
   }
   h6 {
     font: var(--base-font);
+  }
+  button, a.button, input[type="submit"], input[type="button"] {
+    border-radius: var(--button-border-radius);
+    background: var(--button-color);
+    color: var(--button-label-color);
+  }
+  button.secondary, a.button.secondary, input.secondary[type="submit"], input.secondary[type="button"] {
+    background: var(--background-color);
+    color: var(--secondary-button-label-color);
   }
 }
