@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --spacing: 0.25rem;
     --container-2xl: 42rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
@@ -23,6 +24,8 @@
     --secondary-button-label-color: var(--secondary-button-label-color);
     --shadow-color: var(--shadow-color);
     --button-border-radius: var(--button-border-radius);
+    --input-border-radius: var(--input-border-radius)
+;
   }
 }
 @layer base {
@@ -187,8 +190,20 @@
   }
 }
 @layer utilities {
+  .invisible {
+    visibility: hidden;
+  }
+  .absolute {
+    position: absolute;
+  }
   .fixed {
     position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .bottom-\[100\%\] {
+    bottom: 100%;
   }
   .container {
     width: 100%;
@@ -222,6 +237,39 @@
   }
   .grid {
     display: grid;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .w-0 {
+    width: calc(var(--spacing) * 0);
+  }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-full {
+    width: 100%;
   }
   .max-w-2xl {
     max-width: var(--container-2xl);
@@ -282,12 +330,17 @@
   h6 {
     font: var(--base-font);
   }
+  input[type="text"], select, textarea {
+    border-radius: var(--input-border-radius);
+  }
   button, a.button, input[type="submit"], input[type="button"] {
     border-radius: var(--button-border-radius);
+  }
+  button, a.button, input[type="submit"], input[type="button"] {
     background: var(--button-color);
     color: var(--button-label-color);
   }
-  button.secondary, a.button.secondary, input.secondary[type="submit"], input.secondary[type="button"] {
+  button.secondary, .button.secondary, input.secondary[type="submit"], input.secondary[type="button"], input[type="text"], select {
     background: var(--background-color);
     color: var(--secondary-button-label-color);
   }

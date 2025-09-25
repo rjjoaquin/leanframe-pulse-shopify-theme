@@ -39,6 +39,7 @@
     --shadow-color: {{ settings.color_scheme.settings.shadow }};
     /* buttons */
     --button-border-radius: {{ settings.button_border_radius }};
+    --input-border-radius: {% if settings.button_border_radius == "50%" %}0.75rem{% else %}{{ settings.button_border_radius }}{% endif %}
   }
   
 {% endstyle %}

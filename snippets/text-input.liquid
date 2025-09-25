@@ -1,0 +1,6 @@
+{% doc %}
+    @param {string} name - Name attribute of the input
+    @param {string} id - Id attribute of the input
+    @param {string} custom_attributes - Additional attributes to add to the input element
+{% enddoc %}
+<input type="text" {% if id != blank %}id="{{ id }}"{% endif %} {% if name != blank %}name="{{ name }}"{% endif %} {{ custom_attributes }} />

@@ -1,0 +1,16 @@
+{% doc %}
+    @param {"submit" | "url" | "button"} button_type - The type of button to render.
+    @param {string} custom_class - Additional classes to add to the button.
+    @param {string} url - The URL to link to if button_type is "url".
+    @param {string} text - The text to display on the button.
+    @param {string} custom_attributes - Additional attributes to add to the button element.
+{% enddoc %}
+{% if button_type == "submit" %}
+    <button class="{{ custom_class }}" type="submit" {{ custom_attributes }}>{{ text }}</button>
+{% elsif button_type == "url" %}
+    <a class="button {{ custom_class }}" src="{{ url }}" {{ custom_attributes }}>{{ text }}</a>
+{% else %}
+    <button class="{{ custom_class }}" type="button" {{ custom_attributes }}>
+        {{ text }}
+    </button>
+{% endif %} 
