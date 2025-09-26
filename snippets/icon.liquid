@@ -1,17 +1,18 @@
 {% doc %}
-  @param {"sm" | "md" | "lg"} size - defaults "md" 
+  @param {string} size - accepts "sm", "md", "lg". Defaults "md"
   @param {string} name - icon name
-  @param {string} css - additional css classes
-  @param {boolean} decorative - for Accessibility
-  @param {string} stroke - color of the stroke or border
-  @param {string} fill - fill color
-  @param {number} stroke_width - with of the stroke or border in px, default 1.5
+  @param {string} [css] - additional css classes
+  @param {boolean} [decorative] - for Accessibility
+  @param {string} [stroke] - (optional) - color of the stroke or border
+  @param {string} [fill] - (optional) - fill color
+  @param {number} [stroke_width] - (optional) - width of the stroke or border in px, default 1.5
+  @param {string} [title] - (optional) - title for Accessibility
 {% enddoc %}
 
 {% liquid
-  assign name = name | default: icon | default: 'alert'
+  assign name = name | default: 'alert'
   assign size = size | default: 'md'
-  assign css = class | default: ''
+  assign css = css | default: ''
   assign decorative = decorative | default: true
 
   assign stroke = stroke | default: 'currentColor'
@@ -20,16 +21,15 @@
 
   # Map size keyword → Tailwind classes
   case size
-    when 'sm'  assign size_class = 'w-4 h-4'
-    when 'md'  assign size_class = 'w-5 h-5'
-    when 'lg'  assign size_class = 'w-6 h-6'
-  endcase
+    when 'sm'
+      assign size_class = 'w-4 h-4'
 
-  # If size is numeric, we’ll set inline width/height instead.
-  assign numeric_size = size | plus: 0
-  if numeric_size > 0
-    assign inline_size = 'width:' | append: numeric_size | append: 'px;height:' | append: numeric_size | append: 'px;'
-  endif
+    when 'md'
+      assign size_class = 'w-5 h-5'
+
+    when 'lg'
+      assign size_class = 'w-6 h-6'
+  endcase
 
   # Accessibility attrs
   if decorative
@@ -42,38 +42,40 @@
   endif
 %}
 {% # theme-check-disable %}
-<svg {{ role }} {{ aria }}
-     class="inline-block {{ size_class }} {{ css }}"
-     style="{{ inline_size }}"
-     xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 24 24"
-     fill="{{ fill }}"
-     stroke="{{ stroke }}"
-     stroke-width="{{ stroke_width }}"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-{%- case name -%}
-  {%- when 'menu' -%}
-      <path d="M4 6h16M4 12h16M4 18h16" />
-  {%- when 'close' -%}
-      <path d="M6 18L18 6M6 6l12 12" />
-  {%- when 'search' -%}
-      <circle cx="11" cy="11" r="7" />
-      <path d="M21 21l-4.35-4.35" />
-  {%- when 'cart' -%}
-      <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.8h7.5a2 2 0 0 0 2-1.6l1.2-6.4H7" />
-      <circle cx="10" cy="20" r="1.5" />
-      <circle cx="17" cy="20" r="1.5" />
-  {%- when 'chevron-down' -%}
-      <path d="M6 9l6 6 6-6" />
-  {%- when 'chevron-left' -%}
-      <path d="M15 6l-6 6 6 6" />
-  {%- when 'chevron-right' -%}
-      <path d="M9 6l6 6-6 6" />
-  {%- when 'star' -%}
-      <path d="M12 17.25l-5.45 3.2 1.4-6.02L3 9.8l6.18-.53L12 3.5l2.82 5.77L21 9.8l-4.95 4.63 1.4 6.02z" />
-  {%- else -%}
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 8v4M12 16h.01" />
-{%- endcase -%}
-    </svg>
+<svg
+  {{ role }}
+  {{ aria }}
+  class="inline-block {{ size_class }} {{ css }}"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="{{ fill }}"
+  stroke="{{ stroke }}"
+  stroke-width="{{ stroke_width }}"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  {%- case name -%}
+    {%- when 'menu' -%}
+        <path d="M4 6h16M4 12h16M4 18h16" />
+    {%- when 'close' -%}
+        <path d="M6 18L18 6M6 6l12 12" />
+    {%- when 'search' -%}
+        <circle cx="11" cy="11" r="7" />
+        <path d="M21 21l-4.35-4.35" />
+    {%- when 'cart' -%}
+        <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.8h7.5a2 2 0 0 0 2-1.6l1.2-6.4H7" />
+        <circle cx="10" cy="20" r="1.5" />
+        <circle cx="17" cy="20" r="1.5" />
+    {%- when 'chevron-down' -%}
+        <path d="M6 9l6 6 6-6" />
+    {%- when 'chevron-left' -%}
+        <path d="M15 6l-6 6 6 6" />
+    {%- when 'chevron-right' -%}
+        <path d="M9 6l6 6-6 6" />
+    {%- when 'star' -%}
+        <path d="M12 17.25l-5.45 3.2 1.4-6.02L3 9.8l6.18-.53L12 3.5l2.82 5.77L21 9.8l-4.95 4.63 1.4 6.02z" />
+    {%- else -%}
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4M12 16h.01" />
+  {%- endcase -%}
+</svg>

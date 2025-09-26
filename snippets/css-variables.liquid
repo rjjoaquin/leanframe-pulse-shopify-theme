@@ -1,4 +1,4 @@
-{% liquid 
+{% liquid
   assign heading_one_font_multiplier = settings.heading_font_multiplier
   assign heading_two_font_multiplier = settings.heading_font_multiplier
   assign heading_three_font_multiplier = settings.heading_font_multiplier
@@ -27,6 +27,11 @@
     --base-font: {{ settings.base_font.style }} {{ settings.base_font.weight }} {{ settings.base_font_size }}px/1.5 {{ settings.base_font.family }}, {{ settings.base_font.fallback_families }};
     --base-font-size: {{ settings.base_font_size }};
     --heading-one-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_one_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
+    --heading-one-font-style: {{ settings.heading_font.style }};
+    --heading-one-font-weight: {{ settings.heading_font.weight }};
+    --heading-one-font-size: calc({{ settings.base_font_size }}px * {{ heading_one_font_multiplier }});
+    --heading-one-font-line-height: 1.5;
+    --heading-one-font-family: {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
     --heading-two-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_two_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
     --heading-three-font: {{ settings.heading_font.style }} {{ settings.heading_font.weight }} calc({{ settings.base_font_size }}px * {{ heading_three_font_multiplier }})/1.5 {{ settings.heading_font.family }}, {{ settings.heading_font_font.fallback_families }};
     /* colors */
@@ -41,5 +46,4 @@
     --button-border-radius: {{ settings.button_border_radius }};
     --input-border-radius: {% if settings.button_border_radius == "50%" %}0.75rem{% else %}{{ settings.button_border_radius }}{% endif %}
   }
-  
 {% endstyle %}
