@@ -1,15 +1,15 @@
 {% doc %}
-    @param {string} name - Name attribute of the input
-    @param {string} id - Id attribute of the input
-    @param {string} custom_attributes - Additional attributes to add to the input element
-    @param {object} options - The structure must be <ul><li><button @click="">...</button></li></ul>
-    @param {string} selected_value - The value of the option that should be selected by default
+  @param {string} name - Name attribute of the select
+  @param {string} id - Id attribute of the select
+  @param {string} custom_attributes - Additional attributes to add to the select element
+  @param {object} options - Capture options and pass the object, must be <ul><li><button @click="">...</button></li></ul>
+  @param {string} selected_value - The value of the option that should be selected by default
 {% enddoc %}
 <fake-dropdown name="{{ name }}" id="{{ id }}" {{ custom_attributes }}>
-    <details class="w-full relative">
-        <summary>{{ selected_value }}</summary>
-        <div class="options absolute bottom-[100%]">
-            {{ options }}
-        </div>
-    </details>
+  <details class="w-full relative">
+    <summary>{{ selected_value }}</summary>
+    <div class="options absolute bottom-[100%]">
+      {{ options }}
+    </div>
+  </details>
 </fake-dropdown>
