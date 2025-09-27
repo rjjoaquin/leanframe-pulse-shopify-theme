@@ -1,10 +1,28 @@
 {% doc %}
-    @param {string} custom_class - Additional classes to add to the button.
-    @param {string} name - Name attribute of the input
-    @param {string} id - Id attribute of the input
-    @param {string} value - Value attribute of the input
-    @param {boolean} checked - If true, the radio button will be selected by default
-    @param {string} custom_attributes - Additional attributes to add to the input element
-    @param {string} button_text - Text to display on the button label
+  @param {string} name - Name attribute of the input
+  @param {string} id - Id attribute of the input
+  @param {string} value - Value attribute of the input
+  @param {boolean} [checked] - If true, the radio button will be selected by default
+  @param {string} [custom_attributes] - Additional attributes to add to the input element
+  @param {string} [custom_class] - Additional classes to add to the button.
+  @param {string} button_text - Text to display on the button label
 {% enddoc %}
-<input class="absolute invisible z-index[-999] w-0 h-0" type="radio" {{ custom_attributes }} {% if checked %}checked="true"{% endif %} name="{{ name }}" id="{{ id }}" value="{{ value }}" /><label class="button secondary {{ custom_class }}" for="{{ id }}" {{ custom_attributes }}>{{ button_text }}</label>
+{% liquid
+  assign button_class = 'px-4 py-2 w-full text-center cursor-pointer'
+%}
+<select-button class="block">
+  <input
+    class="select-button-input absolute invisible z-index[-999] w-0 h-0"
+    type="radio"
+    {{ custom_attributes }}
+    {% if checked == true %}
+      checked="true"
+    {% endif %}
+    name="{{ name }}"
+    id="{{ id }}"
+    value="{{ value }}"
+
+  ><label class="{{ button_class }} {{ custom_class }}" for="{{ id }}">
+    {{- button_text -}}
+  </label>
+</select-button>

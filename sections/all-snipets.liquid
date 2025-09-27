@@ -15,10 +15,35 @@
   </div>
   <div class="flex flex-col gap-3">
     <h3>Form Elements</h3>
-    <form class="flex flex-col gap-3">
-      {% render 'text-input', name: 'sample', id: 'sample', placeholder: 'Sample Text Input', required: false %}
-      {% render 'button', button_type: 'submit', text: 'This is a submit button' %}
-    </form>
+    <leanframe-form>
+      <form
+        class="flex flex-col gap-3"
+      >
+        {% render 'text-input', name: 'sample', id: 'sample', placeholder: 'Sample Text Input', required: false %}
+        {% liquid
+          assign name = 'sample_select'
+          assign values = 'Sample Select 1,Sample Select 2,Sample Select 3' | split: ','
+          assign ids = 'sample-select-1,sample-select-2,sample-select-3' | split: ','
+          assign button_texts = 'Sample Select 1,Sample Select 2,Sample Select 3' | split: ','
+        %}
+        <div class="flex gap-3">
+          {% for formValue in values %}
+            {% liquid
+              assign value = formValue
+              assign id = ids[forloop.index0]
+              assign button_text = button_texts[forloop.index0]
+              if value == 'Sample Select 1'
+                assign checked = true
+              else
+                assign checked = false
+              endif
+            %}
+            {% render 'select-button', name: name, id: id, value: value, checked: checked, button_text: button_text %}
+          {% endfor %}
+        </div>
+        {% render 'button', button_type: 'submit', text: 'This is a submit button' %}
+      </form>
+    </leanframe-form>
   </div>
 </div>
 

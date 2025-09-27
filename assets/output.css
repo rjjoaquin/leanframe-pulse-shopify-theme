@@ -387,26 +387,42 @@
     opacity: 50%;
   }
   button,
-  a.button,
+  .button,
   input[type="submit"],
   input[type="button"] {
     border-radius: var(--button-border-radius);
   }
   button,
-  a.button,
+  .button,
   input[type="submit"],
   input[type="button"] {
     background: var(--button-color);
     color: var(--button-label-color);
+  }
+  button,
+  .button:not(a),
+  input[type="submit"],
+  input[type="button"] {
+    border: 1px solid var(--button-color);
   }
   button.secondary,
   .button.secondary,
   input.secondary[type="submit"],
   input.secondary[type="button"],
   input[type="text"],
-  select {
+  select,
+  .select-button-input:checked + label {
     background: var(--background-color);
     color: var(--secondary-button-label-color);
+  }
+  button.secondary,
+  .button.secondary:not(a),
+  input.secondary[type="submit"],
+  input.secondary[type="button"],
+  input[type="text"],
+  .select-button-input:checked + label {
+    border: 1px solid var(--text-color);
+    border-radius: var(--button-border-radius);
   }
 }
 @property --tw-rotate-x {
