@@ -6,7 +6,7 @@
   @param {string} [custom_attributes] - Additional attributes to add to the button element.
 {% enddoc %}
 {% liquid
-  assign button_class = 'px-4 py-2 w-full text-center cursor-pointer'
+  assign button_class = 'block px-4 py-2 w-full text-center cursor-pointer'
 %}
 {% if button_type == 'submit' %}
   <button class="{{ button_class }} {{ custom_class }}" type="submit" {{ custom_attributes }}>{{ text }}</button>
