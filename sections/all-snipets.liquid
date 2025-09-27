@@ -1,6 +1,6 @@
-<div class="{{ settings.container_width }} mx-auto">
+<div class="{{ settings.container_width }} mx-auto flex flex-col gap-3">
   <h2>All Snippets</h2>
-  <div class="flex gap-3 flex-col">
+  <div class="flex flex-col gap-3">
     <h3>Icons</h3>
     <div class="flex gap-3">
       {% render 'icon', name: 'cart', size: 'lg' %}
@@ -8,11 +8,17 @@
       {% render 'icon', name: 'menu', size: 'lg' %}
     </div>
   </div>
-  <div class="flex gap-3 flex-col">
+  <div class="flex flex-col gap-3">
     <h3>Button</h3>
     {% render 'button', button_type: 'button', text: 'This is a regular button' %}
     {% render 'button', button_type: 'url', text: 'This is a link button' %}
-    <form>{% render 'button', button_type: 'submit', text: 'This is a submit button' %}</form>
+  </div>
+  <div class="flex flex-col gap-3">
+    <h3>Form Elements</h3>
+    <form class="flex flex-col gap-3">
+      {% render 'text-input', name: 'sample', id: 'sample', placeholder: 'Sample Text Input', required: false %}
+      {% render 'button', button_type: 'submit', text: 'This is a submit button' %}
+    </form>
   </div>
 </div>
 

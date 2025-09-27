@@ -1,16 +1,16 @@
 {% liquid
-  assign heading_one_font_multiplier = settings.heading_font_multiplier
-  assign heading_two_font_multiplier = settings.heading_font_multiplier
-  assign heading_three_font_multiplier = settings.heading_font_multiplier
-  if settings.heading_font_multiplier <= 1.2
-    assign heading_one_font_multiplier = settings.heading_font_multiplier | plus: 0.2
-    assign heading_three_font_multiplier = settings.heading_font_multiplier | minus: 0.2
-  elsif settings.heading_font_multiplier >= 2.0
-    assign heading_two_font_multiplier = settings.heading_font_multiplier | minus: 0.5
-    assign heading_three_font_multiplier = settings.heading_font_multiplier | minus: 0.75
+  assign heading_font_multiplier = settings.heading_font_multiplier | times: 1.0
+  assign heading_one_font_multiplier = settings.heading_font_multiplier | times: 1.0
+  assign heading_two_font_multiplier = settings.heading_font_multiplier | times: 1.0
+  assign heading_three_font_multiplier = settings.heading_font_multiplier | times: 1.0
+  if heading_font_multiplier <= 1.9
+    assign heading_one_font_multiplier = heading_one_font_multiplier | plus: 0.2
+    assign heading_three_font_multiplier = heading_three_font_multiplier | minus: 0.2
+  elsif heading_font_multiplier >= 2.0
+    assign heading_two_font_multiplier = heading_two_font_multiplier | minus: 0.5
+    assign heading_three_font_multiplier = heading_three_font_multiplier | minus: 0.75
   endif
 %}
-
 {% style %}
   {% # Loads all font variantions with display: swap %}
   {{ settings.base_font | font_face: font_display: 'swap' }}

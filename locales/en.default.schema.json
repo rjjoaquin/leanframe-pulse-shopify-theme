@@ -39,7 +39,8 @@
       "narrow": "Narrow",
       "regular": "Regular",
       "wide": "Wide",
-      "full": "Full"
+      "full": "Full",
+      "label": "Container"
     },
     "content": "Content",
     "custom_section": "Custom section",

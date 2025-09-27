@@ -13,9 +13,21 @@
     --default-mono-font-family: var(--font-mono);
     --font-base: var(--base-font);
     --font-base-size: var(--base-font-size);
-    --font-one-heading: var(--heading-one-font);
-    --font-two-heading: var(--heading-two-font);
-    --font-three-heading: var(--heading-three-font);
+    --font-heading-one-style: var(--heading-one-font-style);
+    --font-heading-one-weight: var(--heading-one-font-weight);
+    --font-heading-one-size: var(--heading-one-font-size);
+    --font-heading-one-line-height: var(--heading-one-font-line-height);
+    --font-heading-one-family: var(--heading-one-font-family);
+    --font-heading-two-style: var(--heading-two-font-style);
+    --font-heading-two-weight: var(--heading-two-font-weight);
+    --font-heading-two-size: var(--heading-two-font-size);
+    --font-heading-two-line-height: var(--heading-two-font-line-height);
+    --font-heading-two-family: var(--heading-two-font-family);
+    --font-heading-three-style: var(--heading-three-font-style);
+    --font-heading-three-weight: var(--heading-three-font-weight);
+    --font-heading-three-line-height: var(--heading-three-font-line-height);
+    --font-heading-three-size: var(--heading-three-font-size);
+    --font-heading-three-family: var(--heading-three-font-family);
     --background-color: var(--background-color);
     --background-gradient: var(--background-gradient);
     --text-color: var(--text-color);
@@ -24,8 +36,7 @@
     --secondary-button-label-color: var(--secondary-button-label-color);
     --shadow-color: var(--shadow-color);
     --button-border-radius: var(--button-border-radius);
-    --input-border-radius: var(--input-border-radius)
-;
+    --input-border-radius: var(--input-border-radius);
   }
 }
 @layer base {
@@ -327,16 +338,32 @@
 }
 @layer base {
   h1 {
-    font: var(--font-one-heading);
+    font-style: var(--font-heading-one-style);
+    font-weight: var(--font-heading-one-weight);
+    font-size: var(--font-heading-one-size);
+    line-height: var(--font-heading-one-line-height);
+    font-family: var(--font-heading-one-family);
   }
   h2 {
-    font: var(--font-two-heading);
+    font-style: var(--font-heading-two-style);
+    font-weight: var(--font-heading-two-weight);
+    font-size: var(--font-heading-two-size);
+    line-height: var(--font-heading-two-line-height);
+    font-family: var(--font-heading-two-family);
   }
   h3 {
-    font: var(--font-three-heading);
+    font-style: var(--font-heading-three-style);
+    font-weight: var(--font-heading-three-weight);
+    font-size: var(--font-heading-three-size);
+    line-height: var(--font-heading-three-line-height);
+    font-family: var(--font-heading-three-family);
   }
   h4 {
-    font: var(--font-three-heading);
+    font-style: var(--font-heading-three-style);
+    font-weight: var(--font-heading-three-weight);
+    font-size: var(--font-heading-three-size);
+    line-height: var(--font-heading-three-line-height);
+    font-family: var(--font-heading-three-family);
     font-size: var(--font-base-size);
   }
   h5 {
@@ -345,17 +372,39 @@
   h6 {
     font: var(--base-font);
   }
-  input[type="text"], select, textarea {
+  input[type="text"],
+  select,
+  textarea {
+    border: 1px solid var(--text-color);
     border-radius: var(--input-border-radius);
   }
-  button, a.button, input[type="submit"], input[type="button"] {
+  input[type="text"]::-moz-placeholder {
+    color: var(--text-color);
+    opacity: 50%;
+  }
+  input[type="text"]::placeholder {
+    color: var(--text-color);
+    opacity: 50%;
+  }
+  button,
+  a.button,
+  input[type="submit"],
+  input[type="button"] {
     border-radius: var(--button-border-radius);
   }
-  button, a.button, input[type="submit"], input[type="button"] {
+  button,
+  a.button,
+  input[type="submit"],
+  input[type="button"] {
     background: var(--button-color);
     color: var(--button-label-color);
   }
-  button.secondary, .button.secondary, input.secondary[type="submit"], input.secondary[type="button"], input[type="text"], select {
+  button.secondary,
+  .button.secondary,
+  input.secondary[type="submit"],
+  input.secondary[type="button"],
+  input[type="text"],
+  select {
     background: var(--background-color);
     color: var(--secondary-button-label-color);
   }
