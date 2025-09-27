@@ -1,0 +1,40 @@
+{% doc %}
+  @description Card element for product cards and blog cards in the search and blog page
+
+  @param {object} [product] - product
+  @param {object} [article] - article
+{% enddoc %}
+
+{% liquid
+  assign title = ''
+  assign price = ''
+  assign url = ''
+  assign image = ''
+  assign description = ''
+
+  if product != blank
+    assign title = product.title
+    assign price = product.price
+    assign url = product.url
+    assign image = product.featured_image
+    assign description = product.description | strip | strip_html | strip_newlines | truncate: 200, '...'
+  elsif article != blank
+    assign title = article.title
+    assign price = ''
+    assign url = article.url
+    assign image = article.image
+    assign description = article.excerpt_or_content | strip | strip_html | strip_newlines | truncate: 200, '...'
+  endif
+%}
+<div class="p-2 shadow-sm">
+  <a href="{{ url }}" class="inline-flex flex-col gap-2">
+    {{ image | image_url: width: 600, height: 600 | image_tag: alt: title }}
+    <span class="inline-flex flex-col gap-1">
+      <h3>{{ title }}</h3>
+      {% if price != blank %}
+        <span>{{ price }}</span>
+      {% endif %}
+    </span>
+    <span>{{ description }}</span>
+  </a>
+</div>
