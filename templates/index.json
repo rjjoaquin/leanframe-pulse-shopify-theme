@@ -9,12 +9,13 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
+    "all_snipets_XgYjfh": {
+      "type": "all-snipets",
+      "name": "All Snippets",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "all_snipets_XgYjfh"
   ]
 }
