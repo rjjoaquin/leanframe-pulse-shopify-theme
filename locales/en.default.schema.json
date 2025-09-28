@@ -111,5 +111,9 @@
       "subtitle": "Subtitle",
       "normal": "Normal text"
     }
+  },
+    "all_snippets": {
+    "title": "All Snippets",
+    "product": "Test Product"
   }
 }
