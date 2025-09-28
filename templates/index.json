@@ -12,7 +12,9 @@
     "all_snipets_XgYjfh": {
       "type": "all-snipets",
       "name": "All Snippets",
-      "settings": {}
+      "settings": {
+        "product": "altigrip-advance"
+      }
     }
   },
   "order": [
