@@ -47,7 +47,7 @@
   </div>
   <div class="flex flex-col gap-3">
     <h3>Card elemments</h3>
-    {% render 'simple-card', product: product %}
+        {% if section.settings.product != blank %}{% render 'simple-card', product: section.settings.product %}{% endif %}
   </div>
 </div>
 
