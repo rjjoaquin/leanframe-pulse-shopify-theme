@@ -8,6 +8,16 @@
  * ------------------------------------------------------------
  */
 {
+  "footer": {
+    "name": "Footer",
+    "menu": "Menu",
+    "newsletter": {
+      "show": "Show Newsletter",
+      "heading": "Newsletter Heading",
+      "placeholder": "Newsletter Input Placeholder",
+      "button_label": "Newsletter Button Label"
+    }
+  },
   "general": {
     "404": "Not found",
     "article": "Article",

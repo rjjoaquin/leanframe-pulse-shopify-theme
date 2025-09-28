@@ -14,5 +14,7 @@
       {% endif %}
     </span>
   </a>
-  {% render 'button', button_type: "button", text: "Add To Cart" %}
+  {% form 'product', product %}
+    {% render 'button', button_type: 'submit', text: 'Add To Cart' %}
+  {% endform %}
 </div>

@@ -1,56 +1,85 @@
 <footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+  <div class="footer-wrapper {{ settings.container_width }} mx-auto py-4">
+    <div data-footer-newsletter>
+      {% form 'customer' %}
+        {% render 'text-input', name: "email", id="email", placeholder: section.settings.newsletter_placeholder %}
+        {% render 'button', button_type: 'submit', text: section.settings.newsletter_button_label %}
+      {% endform %}
+    </div>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+    <div data-footer-links>
+      <div class="flex gap-3 items-center">
+        {% for menu in section.settings.menu.links %}
+          <a href="{{ menu.url }}">{{ menu.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
+    <div class="flex gap-6">
+      <div data-footer-policies>
+        &copy;
+        {{ 'now' | date: '%Y' }}
+        {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
+      </div>
+      <div class="flex gap-3 justify-between">
+        <div>
+          {{ shop.enabled_payment_types | payment_type_svg_tag }}
+        </div>
+        <div class="flex gap-3">
+          {% if shop.refund_policy -%}
+            <a href="{{ shop.refund_policy.url }}">Refund Policy</a>
+          {%- endif %}
+          {% if shop.privacy_policy != blank -%}
+            <a href="{{ shop.privacy_policy.url }}">Privacy Policy</a>
+          {%- endif %}
+          {% if shop.terms_of_service != blank -%}
+            <a href="{{ shop.terms_of_service.url }}">Terms of Service</a>
+          {%- endif %}
+          {% if shop.shipping_policy -%}
+            <a href="{{ shop.shipping_policy.url }}">Shipping Policy</a>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
-{% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.footer",
+  "name": "t:footer.name",
   "settings": [
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:labels.menu"
+      "label": "t:footer.menu"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
     },
     {
       "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
+      "id": "show_newsletter",
+      "label": "t:footer.newsletter.show",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "t:footer.newsletter.heading",
+      "default": "Subscribe To Our Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "t:footer.newsletter.placeholder",
+      "default": "Your Email Here"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_label",
+      "label": "t:footer.newsletter.button_label",
+      "default": "Subscribe"
     }
   ]
 }
