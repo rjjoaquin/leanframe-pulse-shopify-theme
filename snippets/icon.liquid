@@ -14,7 +14,6 @@
   assign size = size | default: 'md'
   assign css = css | default: ''
   assign decorative = decorative | default: true
-
   assign stroke = stroke | default: 'currentColor'
   assign fill = fill | default: 'none'
   assign stroke_width = stroke_width | default: 1.5
@@ -25,10 +24,10 @@
       assign size_class = 'w-4 h-4'
 
     when 'md'
-      assign size_class = 'w-5 h-5'
+      assign size_class = 'w-6 h-6'
 
     when 'lg'
-      assign size_class = 'w-6 h-6'
+      assign size_class = 'w-8 h-8'
   endcase
 
   # Accessibility attrs
@@ -74,6 +73,10 @@
         <path d="M9 6l6 6-6 6" />
     {%- when 'star' -%}
         <path d="M12 17.25l-5.45 3.2 1.4-6.02L3 9.8l6.18-.53L12 3.5l2.82 5.77L21 9.8l-4.95 4.63 1.4 6.02z" />
+    {%- when 'account' -%}
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="9" r="3.5" />
+  <path d="M6 18.5a6 6 0 0 1 12 0" />
     {%- else -%}
         <circle cx="12" cy="12" r="10" />
         <path d="M12 8v4M12 16h.01" />

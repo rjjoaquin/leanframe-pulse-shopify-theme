@@ -81,6 +81,11 @@
     "theme": "Theme",
     "typography": "Typography"
   },
+  "header": {
+    "name": "Header",
+    "main_menu": "Main Menu",
+    "logo": "Logo"
+  },
   "labels": {
     "alignment": "Alignment",
     "background": "Background",
@@ -121,7 +126,7 @@
       "normal": "Normal text"
     }
   },
-    "all_snippets": {
+  "all_snippets": {
     "title": "All Snippets",
     "product": "Test Product"
   }

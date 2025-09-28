@@ -1,67 +1,46 @@
 <header>
-  <div class="header-wrapper {{ settings.container_width }} mx-auto">
-    <h2 class="header__title">
-      {{ shop.name | link_to: routes.root_url }}
-    </h2>
-
-    <div class="header__menu">
-      {% for link in section.settings.menu.links %}
-        {{ link.title | link_to: link.url }}
+  <div class="header-wrapper flex {{ settings.container_width }} mx-auto py-4 gap-3 justify-between">
+    <div data-site-title>
+      {% if section.settings.logo != blank -%}
+        {{- section.settings.logo | image_url | image_tag: width: 60, height: 60, preload: true -}}
+      {%- else -%}
+        <h1>{{- shop.name -}}</h1>
+      {%- endif %}
+    </div>
+    <div class="flex gap-3 items-center" data-header-menu>
+      {% for menu in section.settings.menu.links %}
+        <a href="{{ menu.url }}" {{ menu.title }}></a>
       {% endfor %}
     </div>
-
-    <div class="header__icons">
-      {% if shop.customer_accounts_enabled %}
-        {{ 'icon-account.svg' | inline_asset_content | link_to: routes.account_url }}
-      {% endif %}
-
-      <a href="{{ routes.cart_url }}">
-        {% if cart.item_count > 0 %}
-          <sup>{{ cart.item_count }}</sup>
-        {% endif %}
-
-        {{ 'icon-cart.svg' | inline_asset_content }}
-      </a>
+    <div class="flex gap-3 items-center" data-header-icons>
+      <div>
+        <a href="{{ routes.cart_url }}">{% render 'icon', size: 'md', name: 'cart' %}</a>
+      </div>
+      <div>
+        <a href="{% if customer %}{{ routes.account_profile_url }}{% else %}{{ routes.account_login_url }}{% endif %}">
+          {%- render 'icon', size: 'md', name: 'account' -%}
+        </a>
+      </div>
+      <div>
+        <a href="{{ routes.search_url }}">{% render 'icon', size: 'md', name: 'search' %}</a>
+      </div>
     </div>
   </div>
 </header>
 
-{% stylesheet %}
-  header .header-wrapper {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header a {
-    position: relative;
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  header a sup {
-    position: absolute;
-    left: 100%;
-    overflow: hidden;
-    max-width: var(--page-margin);
-  }
-  header svg {
-    width: 2rem;
-  }
-  header .header__menu,
-  header .header__icons {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.header",
+  "name": "t:header.name",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:header.logo"
+    },
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:labels.menu"
+      "label": "t:header.main_menu"
     }
   ]
 }
