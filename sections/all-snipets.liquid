@@ -47,7 +47,20 @@
   </div>
   <div class="flex flex-col gap-3">
     <h3>Card elements</h3>
-        {% if section.settings.product != blank %}{% render 'simple-card', product: section.settings.product %}{% endif %}
+    <div class="flex gap-3">
+      {% if section.settings.product != blank %}
+        <simple-card class="block relative">
+          {% render 'badge', text: "Sale" %}
+          {% render 'simple-card', product: section.settings.product %}
+        </simple-card>
+      {% endif %}
+      {% if section.settings.product != blank %}
+        <product-card class="block relative">
+          {% render 'badge', text: "Low In Stock" %}
+          {% render 'product-card', product: section.settings.product %}
+        </product-card>
+      {% endif %}
+    </div>
   </div>
 </div>
 

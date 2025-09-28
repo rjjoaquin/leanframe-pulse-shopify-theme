@@ -26,13 +26,13 @@
     assign description = article.excerpt_or_content | strip | strip_html | strip_newlines | truncate: 200, '...'
   endif
 %}
-<div class="p-2 shadow-sm">
+<div class="p-3 shadow-sm rounded-md max-w-[600px]">
   <a href="{{ url }}" class="inline-flex flex-col gap-2">
     {{ image | image_url: width: 600, height: 600 | image_tag: alt: title }}
     <span class="inline-flex flex-col gap-1">
       <h3>{{ title }}</h3>
       {% if price != blank %}
-        <span>{{ price }}</span>
+        <span>{{ price | money }}</span>
       {% endif %}
     </span>
     <span>{{ description }}</span>

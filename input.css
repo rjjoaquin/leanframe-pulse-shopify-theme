@@ -21,15 +21,15 @@
   --font-heading-three-line-height: var(--heading-three-font-line-height);
   --font-heading-three-size: var(--heading-three-font-size);
   --font-heading-three-family: var(--heading-three-font-family);
-  --background-color: var(--background-color);
+  --color-background: var(--background-color);
   --background-gradient: var(--background-gradient);
-  --text-color: var(--text-color);
-  --button-color: var(--button-color);
-  --button-label-color: var(--button-label-color);
-  --secondary-button-label-color: var(--secondary-button-label-color);
-  --shadow-color: var(--shadow-color);
-  --button-border-radius: var(--button-border-radius);
-  --input-border-radius: var(--input-border-radius);
+  --color-text: var(--text-color);
+  --color-button: var(--button-color);
+  --color-button-label: var(--button-label-color);
+  --color-secondary-button-label: var(--secondary-color-button-label-color);
+  --color-shadow: var(--shadow-color);
+  --rounded-button: var(--button-border-radius);
+  --rounded-input: var(--input-border-radius);
 }
 
 @layer base {
@@ -71,8 +71,8 @@
   input[type="text"],
   select,
   textarea {
-    border: 1px solid var(--text-color);
-    border-radius: var(--input-border-radius);
+    border: 1px solid var(--color-text);
+    border-radius: var(--rounded-input);
   }
   input[type="text"]::placeholder {
     color: var(--text-color);
@@ -82,20 +82,20 @@
   .button,
   input[type="submit"],
   input[type="button"] {
-    border-radius: var(--button-border-radius);
+    border-radius: var(--rounded-button);
   }
   button,
   .button,
   input[type="submit"],
   input[type="button"] {
-    background: var(--button-color);
-    color: var(--button-label-color);
+    background: var(--color-button);
+    color: var(--color-button-label);
   }
   button,
   .button:not(a),
   input[type="submit"],
   input[type="button"] {
-    border: 1px solid var(--button-color);
+    border: 1px solid var(--color-button);
   }
   button.secondary,
   .button.secondary,
@@ -105,7 +105,7 @@
   select,
   .select-button-input:checked + label {
     background: var(--background-color);
-    color: var(--secondary-button-label-color);
+    color: var(--secondary-color-button-label);
   }
   button.secondary,
   .button.secondary:not(a),
