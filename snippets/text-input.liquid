@@ -4,10 +4,11 @@
   @param {string} [placeholder] - Placeholder attribute of the input
   @param {boolean} [required] - Required input, defaults false
   @param {string} [custom_attributes] - Additional attributes to add to the input element
+  @param {string} [custom_class] - Additional custom classes
 {% enddoc %}
 <input
   type="text"
-  class="px-4 py-2"
+  class="px-4 py-2 {{ custom_class }}"
   {% if id != blank %}
     id="{{ id }}"
   {% endif %}

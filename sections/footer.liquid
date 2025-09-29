@@ -1,9 +1,19 @@
 <footer>
-  <div class="footer-wrapper {{ settings.container_width }} mx-auto py-4">
-    <div data-footer-newsletter>
-      {% form 'customer' %}
-        {% render 'text-input', name: "email", id="email", placeholder: section.settings.newsletter_placeholder %}
-        {% render 'button', button_type: 'submit', text: section.settings.newsletter_button_label %}
+  <div class="footer-wrapper flex flex-col gap-3 {{ settings.container_width }} mx-auto py-4">
+    <div class="flex flex-col gap-2" data-footer-newsletter>
+      <h3>{{ section.settings.newsletter_heading }}</h3>
+      {% form 'customer', class: 'flex gap-3 max-w-[500px]' %}
+        {% render 'text-input',
+          name: 'email',
+          id: 'email',
+          placeholder: section.settings.newsletter_placeholder,
+          custom_class: 'w-full'
+        %}
+        {% render 'button',
+          button_type: 'submit',
+          text: section.settings.newsletter_button_label,
+          custom_class: 'basis-xs'
+        %}
       {% endform %}
     </div>
 
@@ -22,9 +32,11 @@
         {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
       </div>
       <div class="flex gap-3 justify-between">
-        <div>
-          {{ shop.enabled_payment_types | payment_type_svg_tag }}
-        </div>
+        {% if shop.enabled_payment_types != blank %}
+          <div>
+            {{ shop.enabled_payment_types | payment_type_svg_tag }}
+          </div>
+        {% endif %}
         <div class="flex gap-3">
           {% if shop.refund_policy -%}
             <a href="{{ shop.refund_policy.url }}">Refund Policy</a>
