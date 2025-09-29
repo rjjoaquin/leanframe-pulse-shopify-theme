@@ -1,0 +1,31 @@
+{% doc %}
+  @description the product's price, pass the price and/or compare at price or product variant object (can also pass the product object)
+
+  @param {string} [price] - product's price
+  @param {string} [compare_price] - product's compare at price
+  @param {object} [product_variant] - the product object for easier management
+  @param {boolean} [compare_price_position] - position of the compare at price, left is true, defaults true
+{% enddoc %}
+{% liquid
+  assign price = price
+  assign compare_price = compare_price
+
+  if price == blank and product != blank
+    assign price = product_variant.price
+    assign compare_price = product_variant.compare_at_price
+  endif
+%}
+
+{% if price == blank and product == blank %}
+  <product-price class="inline-block">{{ '0' | money }}</product-price>
+{% else %}
+  <product-price class="inline-flex"
+    ><s
+      class="{% if compare_price_position == true %}order-first{% else %}order-last{% endif %}"
+      data-compare-price="{{ compare_price }}"
+    >
+      {{- compare_price | money -}}
+    </s>
+    <span data-price="{{ price }}">{{ price | money }}</span></product-price
+  >
+{% endif %}

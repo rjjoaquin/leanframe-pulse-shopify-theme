@@ -222,6 +222,12 @@
   .left-3 {
     left: calc(var(--spacing) * 3);
   }
+  .order-first {
+    order: -9999;
+  }
+  .order-last {
+    order: 9999;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
