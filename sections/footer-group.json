@@ -14,8 +14,11 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "",
-        "show_payment_icons": true
+        "menu": "footer",
+        "show_newsletter": true,
+        "newsletter_heading": "Subscribe To Our Newsletter",
+        "newsletter_placeholder": "Your Email Here",
+        "newsletter_button_label": "Subscribe"
       }
     }
   },
