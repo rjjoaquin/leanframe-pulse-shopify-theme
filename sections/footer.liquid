@@ -38,7 +38,7 @@
           </div>
         {% endif %}
         <div class="flex gap-3">
-          {% if shop.refund_policy -%}
+          {% if shop.refund_policy != blank -%}
             <a href="{{ shop.refund_policy.url }}">Refund Policy</a>
           {%- endif %}
           {% if shop.privacy_policy != blank -%}
