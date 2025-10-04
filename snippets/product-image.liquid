@@ -1,0 +1,12 @@
+{% doc %}
+  @description product image for product cards
+
+  @param {object} product - product object
+{% enddoc %}
+<div class="w-full">
+  {% if product != blank %}
+    {{ product | image_url: width: 600, height: 600 | image_tag: alt: product.title, loading: 'lazy' }}
+  {% else %}
+    <img src width="600" height="600" alt="No Image">
+  {% endif %}
+</div>

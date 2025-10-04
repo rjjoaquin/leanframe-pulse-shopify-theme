@@ -138,6 +138,7 @@
   },
   "all_snippets": {
     "title": "All Snippets",
-    "product": "Test Product"
+    "product": "Test Product",
+    "collection": "Test Collection"
   }
 }

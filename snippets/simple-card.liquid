@@ -1,8 +1,10 @@
 {% doc %}
-  @description Card element for product cards and blog cards in the search and blog page
+  @description Card element for product, article, collection cards
 
   @param {object} [product] - product
   @param {object} [article] - article
+  @param {object} [collection] - collection
+  @param {number} [truncate] - number of words to truncate, defaults 200
 {% enddoc %}
 
 {% liquid
@@ -11,19 +13,28 @@
   assign url = ''
   assign image = ''
   assign description = ''
+  if truncate == blank
+    assign truncate = 200
+  endif
 
   if product != blank
     assign title = product.title
     assign price = product.price
     assign url = product.url
     assign image = product.featured_image
-    assign description = product.description | strip | strip_html | strip_newlines | truncate: 200, '...'
+    assign description = product.description | strip | strip_html | strip_newlines | truncate: truncate, '...'
   elsif article != blank
     assign title = article.title
     assign price = ''
     assign url = article.url
     assign image = article.image
-    assign description = article.excerpt_or_content | strip | strip_html | strip_newlines | truncate: 200, '...'
+    assign description = article.excerpt_or_content | strip | strip_html | strip_newlines | truncate: truncate, '...'
+  elsif collection != blank
+    assign title = collection.title
+    assign price = ''
+    assign url = collection.url
+    assign image = collection.featured_image
+    assign description = collection.description | strip | strip_html | strip_newlines | truncate: truncate, '...'
   endif
 %}
 <div class="p-3 shadow-sm rounded-md max-w-[600px]">

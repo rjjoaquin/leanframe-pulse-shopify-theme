@@ -315,12 +315,6 @@
   .max-w-full {
     max-width: 100%;
   }
-  .max-w-screen {
-    max-width: 100vw;
-  }
-  .basis-sm {
-    flex-basis: var(--container-sm);
-  }
   .basis-xs {
     flex-basis: var(--container-xs);
   }
@@ -389,10 +383,6 @@
   }
   .font-base {
     font-family: var(--font-base);
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-background {
     color: var(--color-background);

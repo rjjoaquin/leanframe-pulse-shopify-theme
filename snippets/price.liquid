@@ -3,16 +3,20 @@
 
   @param {string} [price] - product's price
   @param {string} [compare_price] - product's compare at price
-  @param {object} [product_variant] - the product object for easier management
-  @param {boolean} [compare_price_position] - position of the compare at price, left is true, defaults true
+  @param {object} [product_variant] - the product variant object for easier management
+  @param {object} [product] - the product object for easier management
+  @param {boolean} [left_compare_price] - position of the compare at price, left is true, defaults true
 {% enddoc %}
 {% liquid
   assign price = price
   assign compare_price = compare_price
 
-  if price == blank and product != blank
+  if price == blank and product_variant != blank
     assign price = product_variant.price
     assign compare_price = product_variant.compare_at_price
+  elsif price == blank and product != blank
+    assign price = product.price
+    assign compare_price = product.compare_at_price
   endif
 %}
 
@@ -21,7 +25,7 @@
 {% else %}
   <product-price class="inline-flex"
     ><s
-      class="{% if compare_price_position == true %}order-first{% else %}order-last{% endif %}"
+      class="{% if left_compare_price == true %}order-first{% else %}order-last{% endif %}"
       data-compare-price="{{ compare_price }}"
     >
       {{- compare_price | money -}}

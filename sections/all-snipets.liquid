@@ -50,17 +50,23 @@
     <div class="flex gap-3">
       {% if section.settings.product != blank %}
         <simple-card class="block relative">
-          {% render 'badge', text: "Sale" %}
+          {% render 'badge', text: 'Sale' %}
           {% render 'simple-card', product: section.settings.product %}
         </simple-card>
       {% endif %}
       {% if section.settings.product != blank %}
         <product-card class="block relative">
-          {% render 'badge', text: "Low In Stock" %}
+          {% render 'badge', text: 'Low In Stock' %}
           {% render 'product-card', product: section.settings.product %}
         </product-card>
       {% endif %}
     </div>
+  </div>
+  <div class="flex flex-col gap-3">
+    <h3>Product Elements</h3>
+    <div>Price: {% render 'price', product: section.settings.product %}</div>
+    <div>Product Thumbnail:</div>
+    {% render 'product-image', product: section.settings.product %}
   </div>
 </div>
 
@@ -72,6 +78,11 @@
       "type": "product",
       "id": "product",
       "label": "t:all_snippets.product"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:all_snippets.collection"
     }
   ],
   "presets": [
