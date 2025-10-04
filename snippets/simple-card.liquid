@@ -37,15 +37,30 @@
     assign description = collection.description | strip | strip_html | strip_newlines | truncate: truncate, '...'
   endif
 %}
-<div class="p-3 shadow-sm rounded-md max-w-[600px]">
-  <a href="{{ url }}" class="inline-flex flex-col gap-2">
-    {{ image | image_url: width: 600, height: 600 | image_tag: alt: title }}
-    <span class="inline-flex flex-col gap-1">
-      <h3>{{ title }}</h3>
-      {% if price != blank %}
-        <span>{{ price | money }}</span>
-      {% endif %}
-    </span>
-    <span>{{ description }}</span>
-  </a>
-</div>
+{% unless product == blank or article == blank or collection == blank %}
+  <div class="p-3 shadow-sm rounded-md max-w-[600px]">
+    <a href="{{ url }}" class="inline-flex flex-col gap-2">
+      {{ image | image_url: width: 600, height: 600 | image_tag: alt: title }}
+      <span class="inline-flex flex-col gap-1">
+        <h3>{{ title }}</h3>
+        {% if price != blank %}
+          <span>{{ price | money }}</span>
+        {% endif %}
+      </span>
+      <span>{{ description }}</span>
+    </a>
+  </div>
+{% else %}
+  <div class="p-3 shadow-sm rounded-md max-w-[600px]">
+    <a href="/" class="inline-flex flex-col gap-2">
+      <img width="600" height="600" alt="No Image">
+      <span class="inline-flex flex-col gap-1">
+        <h3>Placeholder</h3>
+        {% if price != blank %}
+          <span>{{ price | money }}</span>
+        {% endif %}
+      </span>
+      <span>This is just a placeholder, place elements to change the placeholder.</span>
+    </a>
+  </div>
+{% endunless %}
