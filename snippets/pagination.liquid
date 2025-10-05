@@ -1,0 +1,13 @@
+{% doc %}
+  @description pagination element, just the paginate
+
+  @param {object} paginate - paginate object
+  @param {boolean} [is_load_more] - use a load more instead of loading url
+{% enddoc %}
+{% if is_load_more == true %}
+  <load-more data-index="1">
+    <button @click="document.dispatchEvent(new CustomEvent('Load:More:Trigger'))">{{ 'load_more.text' | t }}</button>
+  </load-more>
+{% else %}
+  {{- paginate | default_pagination -}}
+{% endif %}
