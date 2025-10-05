@@ -3,7 +3,7 @@
     {% if section.settings.image_picker -%}
       {{- section.settings.image | image_url | image_tag: alt: section.settings.image.alt -}}
     {%- else -%}
-      <img src width="1200" height="1200" alt="No Image">
+      <img class="w-full" src width="1200" height="1200" alt="No Image">
     {%- endif %}
   </div>
   <div class="flex flex-col gap-3">
