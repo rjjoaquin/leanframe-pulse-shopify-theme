@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-3 place-items-center h-[80vh] w-full relative">
-  <div class="absolute w-full h-full">
+<div class="flex flex-col gap-3 place-items-center h-[80vh] w-full relative overflow-hidden">
+  <div class="absolute w-full h-full top-0 left-0">
     {% if section.settings.image_picker -%}
       {{- section.settings.image | image_url | image_tag: alt: section.settings.image.alt -}}
     {%- else -%}
