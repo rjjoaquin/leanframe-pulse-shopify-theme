@@ -228,12 +228,6 @@
   .order-last {
     order: 9999;
   }
-  .col-span-1 {
-    grid-column: span 1 / span 1;
-  }
-  .col-span-2 {
-    grid-column: span 2 / span 2;
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -288,11 +282,14 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
-  .h-200 {
-    height: calc(var(--spacing) * 200);
+  .h-10 {
+    height: calc(var(--spacing) * 10);
   }
-  .h-600 {
-    height: calc(var(--spacing) * 600);
+  .h-\[60px\] {
+    height: 60px;
+  }
+  .h-\[400px\] {
+    height: 400px;
   }
   .w-0 {
     width: calc(var(--spacing) * 0);
@@ -306,6 +303,12 @@
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
+  .w-\[60px\] {
+    width: 60px;
+  }
+  .w-\[120px\] {
+    width: 120px;
+  }
   .w-full {
     width: 100%;
   }
@@ -315,11 +318,17 @@
   .max-w-\[10rem\] {
     max-width: 10rem;
   }
+  .max-w-\[60px\] {
+    max-width: 60px;
+  }
   .max-w-\[80\%\] {
     max-width: 80%;
   }
   .max-w-\[95\%\] {
     max-width: 95%;
+  }
+  .max-w-\[120px\] {
+    max-width: 120px;
   }
   .max-w-\[500px\] {
     max-width: 500px;
@@ -330,8 +339,11 @@
   .max-w-full {
     max-width: 100%;
   }
-  .flex-1 {
-    flex: 1;
+  .basis-\[40\%\] {
+    flex-basis: 40%;
+  }
+  .basis-\[60\%\] {
+    flex-basis: 60%;
   }
   .basis-xs {
     flex-basis: var(--container-xs);
@@ -344,9 +356,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .flex-col {
     flex-direction: column;
@@ -375,20 +384,6 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
-  .space-y-3 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
-    }
-  }
-  .space-y-6 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
-    }
-  }
   .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -416,14 +411,14 @@
   .bg-text {
     background-color: var(--color-text);
   }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
   .p-3 {
     padding: calc(var(--spacing) * 3);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
-  }
-  .py-1 {
-    padding-block: calc(var(--spacing) * 1);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -561,11 +556,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
@@ -649,7 +639,6 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
