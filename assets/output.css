@@ -291,6 +291,9 @@
   .h-\[60px\] {
     height: 60px;
   }
+  .h-\[300px\] {
+    height: 300px;
+  }
   .h-\[400px\] {
     height: 400px;
   }
@@ -308,9 +311,6 @@
   }
   .w-\[60px\] {
     width: 60px;
-  }
-  .w-\[120px\] {
-    width: 120px;
   }
   .w-full {
     width: 100%;
@@ -407,6 +407,9 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
   }
   .bg-\(--background-color\) {
     background-color: var(--background-color);

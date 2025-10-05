@@ -5,54 +5,11 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/product
 {% endcomment %}
 
-<product-section class="{{ settings.container_width }} mx-auto product-section flex gap-4 rounded-lg">
-  <product-media class="animate-pulse w-full basis-[40%] flex flex-col gap-3">
-    <div class="h-[400px] bg-gray-200" data-main-image></div>
-    <div class="flex flex-wrap gap-3">
-      <div class="h-[60px] w-[60px] bg-gray-200" data-thumnails></div>
-      <div class="h-[60px] w-[60px] bg-gray-200" data-thumnails></div>
-      <div class="h-[60px] w-[60px] bg-gray-200" data-thumnails></div>
-      <div class="h-[60px] w-[60px] bg-gray-200" data-thumnails></div>
-      <div class="h-[60px] w-[60px] bg-gray-200" data-thumnails></div>
-    </div>
-  </product-media>
-  <product-details class="animate-pulse flex flex-col gap-6 p-2 w-full basis-[60%]">
-    <div class="flex flex-col gap-3">
-      <div data-product-title class="h-4 rounded bg-gray-200"></div>
-      <div data-product-price class="h-2 max-w-[60px] rounded bg-gray-200"></div>
-      <div data-product-vendor class="h-2 max-w-[120px] rounded bg-gray-200"></div>
-    </div>
-
-    <div data-product-description class="w-full flex flex-col gap-3">
-      <p class="h-2 rounded bg-gray-200"></p>
-      <p class="h-2 rounded bg-gray-200"></p>
-      <p class="h-2 rounded bg-gray-200"></p>
-      <p class="h-2 rounded bg-gray-200"></p>
-      <p class="h-2 rounded bg-gray-200"></p>
-      <p class="h-2 rounded bg-gray-200"></p>
-    </div>
-    <div data-product-options class="w-full flex gap-3">
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-    </div>
-    <div data-product-options class="w-full flex gap-3">
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-    </div>
-    <div data-product-options class="w-full flex gap-3">
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-      <div data-product-title class="h-10 w-full max-w-[120px] rounded bg-gray-200"></div>
-    </div>
-    <div data-cart-button class="h-14 w-full max-w-[400px] rounded bg-gray-200"></div>
-  </product-details>
-</product-section>
+{% render 'product-loader' %}
 
 {% schema %}
 {
-  "name": "t:general.product",
+  "name": "t:product.name",
   "settings": [],
   "disabled_on": {
     "groups": ["header", "footer"]
