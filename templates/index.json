@@ -16,9 +16,20 @@
         "product": "altigrip-advance",
         "collection": "backpacks"
       }
+    },
+    "hero_pmaDkJ": {
+      "type": "hero",
+      "name": "t:hero.name",
+      "settings": {
+        "title": "Lorem ipsum dolor sit amet",
+        "subtitle": "<p>Lorem ipsum dolor sit amet</p>",
+        "button_text": "Click Here",
+        "button_url": ""
+      }
     }
   },
   "order": [
+    "hero_pmaDkJ",
     "all_snipets_XgYjfh"
   ]
 }
