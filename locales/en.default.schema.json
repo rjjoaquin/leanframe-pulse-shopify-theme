@@ -92,6 +92,14 @@
     "theme": "Theme",
     "typography": "Typography"
   },
+  "hero": {
+    "name": "Hero",
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "image": "Image",
+    "button_text": "Button Text",
+    "button_url": "Button URL"
+  },
   "header": {
     "name": "Header",
     "main_menu": "Main Menu",

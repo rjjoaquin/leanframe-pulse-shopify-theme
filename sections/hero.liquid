@@ -1,0 +1,51 @@
+<div class="flex flex-col gap-3 place-items-center h-[80vh] w-full relative">
+  <div class="absolute w-full h-full">
+    {% if section.settings.image_picker -%}
+      {{- section.settings.image | image_url | image_tag: alt: section.settings.image.alt -}}
+    {%- else -%}
+      <img src width="1200" height="1200" alt="No Image">
+    {%- endif %}
+  </div>
+  <div class="flex flex-col gap-3">
+    <h2>{{ section.settings.title }}</h2>
+    <div>{{ section.settings.subtitle }}</div>
+    <div>
+      {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:hero.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:hero.title",
+      "default": "Lorem ipsum dolor sit amet"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "t:hero.subtitle",
+      "default": "Lorem ipsum dolor sit amet"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:hero.image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:hero.button_text",
+      "default": "Click Here"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:hero.button_url"
+    }
+  ]
+}
+{% endschema %}

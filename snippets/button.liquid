@@ -11,7 +11,7 @@
 {% if button_type == 'submit' %}
   <button class="{{ button_class }} {{ custom_class }}" type="submit" {{ custom_attributes }}>{{ text }}</button>
 {% elsif button_type == 'url' %}
-  <a class="button {{ button_class }} {{ custom_class }}" src="{{ url }}" {{ custom_attributes }}>{{ text }}</a>
+  <a class="button {{ button_class }} {{ custom_class }}" href="{{ url }}" {{ custom_attributes }}>{{ text }}</a>
 {% else %}
   <button class="{{ button_class }} {{ custom_class }}" type="button" {{ custom_attributes }}>
     {{ text }}
