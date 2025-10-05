@@ -4,10 +4,10 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
 {% endcomment %}
-
-<h1>{{ collection.title }}</h1>
-
-{% render 'collection-loader' %}
+<div class="{{ settings.container_width }} mx-auto collection-section">
+  <h1>{{ collection.title }}</h1>
+  {% render 'collection-loader' %}
+</div>
 
 {% schema %}
 {
