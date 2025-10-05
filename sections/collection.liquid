@@ -4,7 +4,7 @@
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/collection
 {% endcomment %}
-<div class="{{ settings.container_width }} mx-auto collection-section">
+<div class="{{ settings.container_width }} mx-auto collection-section flex flex-col gap-3">
   <h1>{{ collection.title }}</h1>
   {% render 'collection-loader' %}
 </div>
