@@ -213,11 +213,17 @@
   .relative {
     position: relative;
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-3 {
     top: calc(var(--spacing) * 3);
   }
   .bottom-\[100\%\] {
     bottom: 100%;
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
   }
   .left-3 {
     left: calc(var(--spacing) * 3);
@@ -296,6 +302,12 @@
   }
   .h-\[400px\] {
     height: 400px;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .min-h-\[80vh\] {
+    min-height: 80vh;
   }
   .w-0 {
     width: calc(var(--spacing) * 0);
@@ -401,6 +413,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -425,6 +440,10 @@
   }
   .bg-text {
     background-color: var(--color-text);
+  }
+  .object-cover {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
