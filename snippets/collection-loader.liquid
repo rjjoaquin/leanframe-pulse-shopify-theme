@@ -8,7 +8,7 @@
     assign total_items = 30
   endif
 %}
-<collection-section class="grid grid-cols-4 place-items-center gap-3">
+<collection-section class="{{ settings.container_width }} mx-auto grid grid-cols-4 place-items-center gap-3">
   {%- for i in (1..total_items) -%}
     {%- render 'card-loader' -%}
   {%- endfor -%}
