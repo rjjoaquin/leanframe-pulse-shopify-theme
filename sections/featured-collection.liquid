@@ -16,7 +16,7 @@
   </div>
 {% endif %}
 {% if collection != blank %}
-  <featured-collection class="grid grid-cols-4 gap-3">
+  <featured-collection class="{{ settings.container_width }} mx-auto grid grid-cols-4 gap-3">
     {% for product in collection.products %}
       {% render 'product-card', product: product %}
     {% endfor %}
