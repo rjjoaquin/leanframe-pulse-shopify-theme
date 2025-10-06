@@ -36,11 +36,22 @@
         "subtitle": "",
         "show_description": false
       }
+    },
+    "featured_collection_ymem3X": {
+      "type": "featured-collection",
+      "name": "t:featured_collection.name",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "backpacks",
+        "subtitle": "",
+        "show_description": false
+      }
     }
   },
   "order": [
     "hero_pmaDkJ",
     "all_snipets_XgYjfh",
-    "featured_collection_6aa9EH"
+    "featured_collection_6aa9EH",
+    "featured_collection_ymem3X"
   ]
 }
