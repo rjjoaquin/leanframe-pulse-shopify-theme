@@ -3,21 +3,21 @@
 %}
 {% if section.settings.title != blank %}
   <div>
-    <h2>{{ section.settings.title }}</h2>
+    <h2 class="text-center">{{ section.settings.title }}</h2>
   </div>
 {% endif %}
 {% if section.settings.show_description != true and section.settings.subtitle != blank %}
-  <div>
+  <div class="text-center">
     {{ section.settings.subtitle }}
   </div>
 {% elsif collection.description != blank %}
-  <div>
+  <div class="text-center">
     {{ collection.description }}
   </div>
 {% endif %}
 {% if collection != blank %}
   <featured-collection class="grid grid-cols-4 gap-3">
-    {% for prod in collection.products %}
+    {% for product in collection.products %}
       {% render 'product-card', product: product %}
     {% endfor %}
   </featured-collection>
