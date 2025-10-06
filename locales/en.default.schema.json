@@ -70,9 +70,7 @@
       "heading_multiplier": "Heading font scale",
       "heading_multiplier_info": "Example: If base font is 16px, the set heading font multiplier is 1.4. Then the heading font size is 16px * 1.4"
     },
-    "collection": {
-      "name": "Collection"
-    },
+
     "footer": "Footer",
     "group": "Group",
     "header": "Header",
@@ -91,6 +89,9 @@
     "text": "Text",
     "theme": "Theme",
     "typography": "Typography"
+  },
+  "collection": {
+    "name": "Collection"
   },
   "hero": {
     "name": "Hero",

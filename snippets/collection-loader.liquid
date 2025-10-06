@@ -1,5 +1,15 @@
+{% doc %}
+  @description collection grid loader
+
+  @param {number} [total_items] - total number of items, defaults 30
+{% enddoc %}
+{% liquid
+  if total_items == blank
+    assign total_items = 30
+  endif
+%}
 <collection-section class="grid grid-cols-4 place-items-center gap-3">
-  {%- for i in (1..30) -%}
+  {%- for i in (1..total_items) -%}
     {%- render 'card-loader', card_width: '250px' -%}
   {%- endfor -%}
 </collection-section>
