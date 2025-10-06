@@ -1,9 +1,14 @@
 {% doc %}
   @description card loader
 
-  @param {string} card_width - card width, px, %, etc.
+  @param {string} [card_width] - card width, px, %, etc.
 {% enddoc %}
-<div class="flex flex-col w-full rounded-lg border border-gray-200 gap-3 p-3" style="max-width:{{ card_width }}">
+<div
+  class="flex flex-col w-full rounded-lg border border-gray-200 gap-3 p-3"
+  {% if card_width != blank %}
+    style="max-width:{{ card_width }}"
+  {% endif %}
+>
   <div class="product-media w-full h-[300px] rounded-lg bg-gray-200 animate-pulse" data-product-media></div>
   <div class="product-description w-full flex flex-col gap-3 animate-pulse">
     <div data-product-title class="h-4 rounded bg-gray-200"></div>

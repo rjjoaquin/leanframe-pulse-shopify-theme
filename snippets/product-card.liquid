@@ -3,18 +3,21 @@
 
   @param {object} product - product
 {% enddoc %}
-
-<div class="p-3 shadow-sm rounded-md max-w-[600px]">
-  <a href="{{ product.url }}" class="inline-flex flex-col gap-2">
-    {{ product.featured_image | image_url: width: 600, height: 600 | image_tag: alt: product.title }}
-    <span class="inline-flex flex-col gap-1">
-      <h3>{{ product.title }}</h3>
-      {% if product.price != blank %}
-        <span>{{ product.price | money }}</span>
-      {% endif %}
-    </span>
-  </a>
-  {% form 'product', product %}
-    {% render 'button', button_type: 'submit', text: 'Add To Cart' %}
-  {% endform %}
-</div>
+{% if product != blank %}
+  <div class="p-3 shadow-sm rounded-md max-w-[600px]">
+    <a href="{{ product.url }}" class="inline-flex flex-col gap-2">
+      {{ product.featured_image | image_url: width: 600, height: 600 | image_tag: alt: product.title }}
+      <span class="inline-flex flex-col gap-1">
+        <h3>{{ product.title }}</h3>
+        {% if product.price != blank %}
+          <span>{{ product.price | money }}</span>
+        {% endif %}
+      </span>
+    </a>
+    {% form 'product', product %}
+      {% render 'button', button_type: 'submit', text: 'Add To Cart' %}
+    {% endform %}
+  </div>
+{% else %}
+  {% render 'card-loader' %}
+{% endif %}
