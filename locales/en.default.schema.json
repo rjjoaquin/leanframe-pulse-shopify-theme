@@ -152,5 +152,12 @@
     "title": "All Snippets",
     "product": "Test Product",
     "collection": "Test Collection"
+  },
+  "featured_collection": {
+    "name": "Featured Collection",
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "show_description": "Show Collection Description Instead",
+    "collection": "Collection"
   }
 }

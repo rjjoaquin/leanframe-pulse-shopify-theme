@@ -1,0 +1,59 @@
+{% liquid
+  assign collection = section.settings.collection
+%}
+{% if section.settings.title != blank %}
+  <div>
+    <h2>{{ section.settings.title }}</h2>
+  </div>
+{% endif %}
+{% if section.settings.show_description != true and section.settings.subtitle != blank %}
+  <div>
+    {{ section.settings.subtitle }}
+  </div>
+{% elsif collection.description != blank %}
+  <div>
+    {{ collection.description }}
+  </div>
+{% endif %}
+{% if collection != blank %}
+  <featured-collection class="grid grid-cols-4 gap-3">
+    {% for prod in collection.products %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </featured-collection>
+{% else %}
+  {% render 'collection-loader' %}
+{% endif %}
+{% schema %}
+{
+  "name": "t:featured_collection.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:featured_collection.title"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:featured_collection.collection"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "t:featured_collection.subtitle"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:featured_collection.show_description",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:featured_collection.name"
+    }
+  ]
+}
+{% endschema %}
