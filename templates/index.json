@@ -9,14 +9,6 @@
  */
 {
   "sections": {
-    "all_snipets_XgYjfh": {
-      "type": "all-snipets",
-      "name": "All Snippets",
-      "settings": {
-        "product": "altigrip-advance",
-        "collection": "backpacks"
-      }
-    },
     "hero_pmaDkJ": {
       "type": "hero",
       "name": "t:hero.name",
@@ -26,10 +18,29 @@
         "button_text": "Click Here",
         "button_url": ""
       }
+    },
+    "all_snipets_XgYjfh": {
+      "type": "all-snipets",
+      "name": "All Snippets",
+      "settings": {
+        "product": "altigrip-advance",
+        "collection": "backpacks"
+      }
+    },
+    "featured_collection_6aa9EH": {
+      "type": "featured-collection",
+      "name": "t:featured_collection.name",
+      "settings": {
+        "title": "",
+        "collection": "",
+        "subtitle": "",
+        "show_description": false
+      }
     }
   },
   "order": [
     "hero_pmaDkJ",
-    "all_snipets_XgYjfh"
+    "all_snipets_XgYjfh",
+    "featured_collection_6aa9EH"
   ]
 }
