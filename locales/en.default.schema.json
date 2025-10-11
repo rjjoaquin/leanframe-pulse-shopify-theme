@@ -159,5 +159,30 @@
     "subtitle": "Subtitle",
     "show_description": "Show Collection Description Instead",
     "collection": "Collection"
+  },
+  "image_with_text": {
+    "name": "Image with Text",
+    "layout": "Layout",
+    "layout_info": "Choose whether the image takes up more space, balanced, or text takes up more space",
+    "layout_options": {
+      "image_bigger": "Image Bigger",
+      "balanced": "Balanced",
+      "text_area_bigger": "Text Area Bigger"
+    },
+    "alignment": {
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    },
+    "alignment_options": {
+      "start": "Start",
+      "center": "Center",
+      "end": "End"
+    },
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "body_text": "Body Text",
+    "button_text": "Button Text",
+    "button_url": "Button URL",
+    "image": "Image"
   }
 }

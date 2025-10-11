@@ -1,0 +1,147 @@
+{% liquid
+  if section.settings.layout == 'text_area_bigger'
+    assign image_area_size = 'basis-sm'
+    assign text_area_size = 'basis-lg'
+  elsif section.settings.layout == 'image_bigger'
+    assign image_area_size = 'basis-lg'
+    assign text_area_size = 'basis-sm'
+  else
+    assign image_area_size = 'basis-[50%]'
+    assign text_area_size = 'basis-[50%]'
+  endif
+%}
+
+<div class="{{ settings.container_width }} mx-auto flex flex-col lg:flex-row">
+  <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
+    {% if section.settings.image != blank -%}
+      {{-
+        section.settings.image
+        | image_url: width: 1200, height: 1200
+        | image_tag: loading: 'lazy', alt: section.settings.title
+      -}}
+    {%- else %}
+      <img src width="1200" height="1200" alt="No Image">
+    {% endif %}
+  </div>
+  <div class="text-area flex flex-col gap-3 {{ text_area_size }} p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
+    <div>
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+    <div>
+      <h3>{{ section.settings.subtitle }}</h3>
+    </div>
+    <div>
+      <p>{{ section.settings.body_text }}</p>
+    </div>
+    <div>
+      {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:image_with_text.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:image_with_text.image"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:image_with_text.layout",
+      "info": "t:image_with_text.layout_info",
+      "options": [
+        {
+          "value": "image_bigger",
+          "label": "t:image_with_text.layout_options.image_bigger"
+        },
+        {
+          "value": "balanced",
+          "label": "t:image_with_text.layout_options.balanced"
+        },
+        {
+          "value": "text_area_bigger",
+          "label": "t:image_with_text.layout_options.text_area_bigger"
+        }
+      ],
+      "default": "balanced"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "t:image_with_text.alignment.horizontal",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:image_with_text.alignment_options.start"
+        },
+        {
+          "value": "center",
+          "label": "t:image_with_text.alignment_options.center"
+        },
+        {
+          "value": "end",
+          "label": "t:image_with_text.alignment_options.end"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "t:image_with_text.alignment.vertical",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:image_with_text.alignment_options.start"
+        },
+        {
+          "value": "center",
+          "label": "t:image_with_text.alignment_options.center"
+        },
+        {
+          "value": "end",
+          "label": "t:image_with_text.alignment_options.end"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:image_with_text.title",
+      "default": "Image with Text"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:image_with_text.subtitle",
+      "default": "Subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "t:image_with_text.body_text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis luctus nibh quis efficitur. Pellentesque id sapien sed tortor suscipit molestie at nec velit. Nunc in ligula eu ante posuere ultricies. Nam gravida tellus augue, ac gravida sem semper id. Aenean laoreet est sed ultricies volutpat. Vivamus consectetur leo id velit finibus fringilla. Fusce porta gravida urna, nec scelerisque justo pellentesque venenatis. Curabitur dapibus elit eros, eu cursus libero fringilla sodales. Nunc accumsan magna et porttitor finibus. Aliquam rhoncus lorem neque, ac placerat libero consequat in. Duis lacus tellus, dapibus ut auctor nec, semper non augue.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:image_with_text.button_text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:image_with_text.button_url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:image_with_text.name"
+    }
+  ]
+}
+{% endschema %}
