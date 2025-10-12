@@ -10,31 +10,32 @@
     assign text_area_size = 'basis-[50%]'
   endif
 %}
-
-<div class="{{ settings.container_width }} mx-auto flex flex-end flex-start flex-center flex-col lg:flex-row">
-  <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
-    {% if section.settings.image != blank -%}
-      {{-
-        section.settings.image
-        | image_url: width: 1200, height: 1200
-        | image_tag: loading: 'lazy', alt: section.settings.title
-      -}}
-    {%- else %}
-      <img src width="1200" height="1200" alt="No Image">
-    {% endif %}
-  </div>
-  <div class="text-area flex flex-col gap-3 {{ text_area_size }} p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
-    <div>
-      <h2>{{ section.settings.title }}</h2>
+<div class="items-end items-start justify-end justify-start">
+  <div class="{{ settings.container_width }} mx-auto flex lg:flex-row">
+    <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
+      {% if section.settings.image != blank -%}
+        {{-
+          section.settings.image
+          | image_url: width: 1200, height: 1200
+          | image_tag: loading: 'lazy', alt: section.settings.title
+        -}}
+      {%- else %}
+        <img src width="1200" height="1200" alt="No Image">
+      {% endif %}
     </div>
-    <div>
-      <h3>{{ section.settings.subtitle }}</h3>
-    </div>
-    <div>
-      <p>{{ section.settings.body_text }}</p>
-    </div>
-    <div>
-      {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
+    <div class="text-area flex flex-col gap-3 {{ text_area_size }} p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
+      <div>
+        <h2>{{ section.settings.title }}</h2>
+      </div>
+      <div>
+        <h3>{{ section.settings.subtitle }}</h3>
+      </div>
+      <div>
+        <p>{{ section.settings.body_text }}</p>
+      </div>
+      <div>
+        {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
+      </div>
     </div>
   </div>
 </div>
