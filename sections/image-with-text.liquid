@@ -10,6 +10,7 @@
     assign text_area_size = 'basis-[50%]'
   endif
 %}
+{% # Tailwind does not detect dynamic section classes, all classes here %}
 <div class="items-end items-start justify-end justify-start">
   <div class="{{ settings.container_width }} mx-auto flex lg:flex-row">
     <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
