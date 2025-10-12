@@ -53,7 +53,7 @@
       "settings": {
         "layout": "balanced",
         "horizontal_alignment": "start",
-        "vertical_alignment": "end",
+        "vertical_alignment": "start",
         "title": "Balanced",
         "subtitle": "Subtitle",
         "body_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis luctus nibh quis efficitur. Pellentesque id sapien sed tortor suscipit molestie at nec velit. Nunc in ligula eu ante posuere ultricies. Nam gravida tellus augue, ac gravida sem semper id. Aenean laoreet est sed ultricies volutpat. Vivamus consectetur leo id velit finibus fringilla. Fusce porta gravida urna, nec scelerisque justo pellentesque venenatis. Curabitur dapibus elit eros, eu cursus libero fringilla sodales. Nunc accumsan magna et porttitor finibus. Aliquam rhoncus lorem neque, ac placerat libero consequat in. Duis lacus tellus, dapibus ut auctor nec, semper non augue.</p>",
