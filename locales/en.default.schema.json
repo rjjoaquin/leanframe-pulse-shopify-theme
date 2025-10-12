@@ -184,5 +184,29 @@
     "button_text": "Button Text",
     "button_url": "Button URL",
     "image": "Image"
+  },
+  "promo_grid": {
+    "name": "Promo Grid",
+    "blocks": {
+      "product": {
+        "title": "Title",
+        "product": "Product",
+        "text": "Sale Text",
+        "button_text": "Button Text"
+      },
+      "collection": {
+        "title": "Title",
+        "collection": "Collection",
+        "text": "Sale Text",
+        "button_text": "Button Text"
+      },
+      "banner": {
+        "title": "Title",
+        "subtitle": "Subtitle",
+        "image": "Image",
+        "button_text": "Button Text",
+        "url": "url"
+      }
+    }
   }
 }

@@ -1,0 +1,135 @@
+<div class="promo-grid flex gap-3">
+  {% for block in section.blocks %}
+    {% unless block.type == 'banner' %}
+      <promo-card
+        class="flex flex-col gap-2"
+        {% if block.settings.button_text == blank %}
+          @click="window.location.href='{{ block.settings.object.url }}'"
+        {% endif %}
+      >
+        <div class="w-full overflow-hidden object-contain">
+          {{ block.settings.object | image_url: width: 1200, height: 1200 | image_tag: loading: 'lazy' }}
+        </div>
+        <div>
+          <h3>{{ block.settings.text }}</h3>
+        </div>
+        {% if block.settings.button_text != blank %}
+          <div>
+            {% render 'button', button_type: 'url', text: block.settings.button_text, url: block.settings.url %}
+          </div>
+        {% endif %}
+      </promo-card>
+    {% else %}
+      <promo-card class="flex flex-col gap-2">
+        {% if block.settings.banner_image != blank %}
+          <div class="w-full overflow-hidden object-contain">
+            {{ block.settings.banner_image | image_url: width: 1200, height: 1200 | image_tag: loading: 'lazy' }}
+          </div>
+        {% endif %}
+        <div>
+          {{ block.settings.title }}
+        </div>
+        <div>
+          {{ block.settings.subtitle }}
+        </div>
+        <div>
+          {% render 'button', button_type: 'url', text: block.settings.button_text, url: block.settings.url %}
+        </div>
+      </promo-card>
+    {% endunless %}
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "t:promo_grid.name",
+  "blocks": [
+    {
+      "name": "t:promo_grid.blocks.collection.title",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "object",
+          "label": "t:promo_grid.blocks.collection.collection"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:promo_grid.blocks.collection.text",
+          "default": "Shop collection at 30% off"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:promo_grid.blocks.collection.button_text",
+          "info": "Leave blank if the grid is clickable",
+          "default": "Shop Collection"
+        }
+      ]
+    },
+    {
+      "name": "t:promo_grid.blocks.product.title",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "object",
+          "label": "t:promo_grid.blocks.product.product"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:promo_grid.blocks.product.text",
+          "default": "Buy product now at 50% off"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:promo_grid.blocks.product.button_text",
+          "info": "Leave blank if the grid is clickable",
+          "default": "Shop Product"
+        }
+      ]
+    },
+    {
+      "name": "t:promo_grid.blocks.banner.title",
+      "type": "banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:promo_grid.blocks.banner.image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:promo_grid.blocks.banner.title",
+          "default": "Shop at our store, 30% sale"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "t:promo_grid.blocks.banner.subtitle",
+          "default": "Hurry before it ends"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:promo_grid.blocks.banner.button_text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:promo_grid.blocks.banner.url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:promo_grid.name"
+    }
+  ]
+}
+{% endschema %}
