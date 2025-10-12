@@ -208,5 +208,13 @@
         "url": "url"
       }
     }
+  },
+  "rich_text": {
+    "name": "Rich Text",
+    "title": "Heading",
+    "subtitle": "Subheading",
+    "body_text": "Body Text",
+    "button_text": "Button Text",
+    "url": "url"
   }
 }

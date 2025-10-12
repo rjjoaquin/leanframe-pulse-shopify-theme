@@ -1,0 +1,68 @@
+<div class="flex flex-col gap-3">
+  {% if section.settings.title != blank %}
+    <div>
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+  {% endif %}
+  {% if section.settings.subtitle != blank %}
+    <div>
+      <h3>{{ section.settings.subtitle }}</h3>
+    </div>
+  {% endif %}
+  {% if section.settings.body_text != blank %}
+    <div>
+      {{ section.settings.body_text }}
+    </div>
+  {% endif %}
+  {% if section.settings.button_text != blank %}
+    <div>
+      {% render 'button',
+        button_type: section.settings.button_text,
+        text: section.settings.button_text,
+        url: section.settings.url
+      %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:rich_text.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:rich_text.title",
+      "default": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:rich_text.subtitle",
+      "default": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "t:rich_text.body_text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo felis, malesuada sed orci id, laoreet facilisis neque. Nullam ac tempus quam. Quisque in iaculis nibh. Morbi eleifend orci quis lacus luctus, eget efficitur sapien pretium</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:rich_text.button_text",
+      "default": "Go Now"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "t:rich_text.url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:rich_text.name"
+    }
+  ]
+}
+{% endschema %}
