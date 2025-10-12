@@ -46,12 +46,42 @@
         "subtitle": "",
         "show_description": false
       }
+    },
+    "image_with_text_LTydEn": {
+      "type": "image-with-text",
+      "name": "t:image_with_text.name",
+      "settings": {
+        "layout": "balanced",
+        "horizontal_alignment": "start",
+        "vertical_alignment": "start",
+        "title": "Balanced",
+        "subtitle": "Subtitle",
+        "body_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis luctus nibh quis efficitur. Pellentesque id sapien sed tortor suscipit molestie at nec velit. Nunc in ligula eu ante posuere ultricies. Nam gravida tellus augue, ac gravida sem semper id. Aenean laoreet est sed ultricies volutpat. Vivamus consectetur leo id velit finibus fringilla. Fusce porta gravida urna, nec scelerisque justo pellentesque venenatis. Curabitur dapibus elit eros, eu cursus libero fringilla sodales. Nunc accumsan magna et porttitor finibus. Aliquam rhoncus lorem neque, ac placerat libero consequat in. Duis lacus tellus, dapibus ut auctor nec, semper non augue.</p>",
+        "button_text": "Button",
+        "button_url": ""
+      }
+    },
+    "image_with_text_hTJrDk": {
+      "type": "image-with-text",
+      "name": "t:image_with_text.name",
+      "settings": {
+        "layout": "balanced",
+        "horizontal_alignment": "start",
+        "vertical_alignment": "start",
+        "title": "Image Bigger",
+        "subtitle": "Subtitle",
+        "body_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis luctus nibh quis efficitur. Pellentesque id sapien sed tortor suscipit molestie at nec velit. Nunc in ligula eu ante posuere ultricies. Nam gravida tellus augue, ac gravida sem semper id. Aenean laoreet est sed ultricies volutpat. Vivamus consectetur leo id velit finibus fringilla. Fusce porta gravida urna, nec scelerisque justo pellentesque venenatis. Curabitur dapibus elit eros, eu cursus libero fringilla sodales. Nunc accumsan magna et porttitor finibus. Aliquam rhoncus lorem neque, ac placerat libero consequat in. Duis lacus tellus, dapibus ut auctor nec, semper non augue.</p>",
+        "button_text": "Button",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "hero_pmaDkJ",
     "all_snipets_XgYjfh",
     "featured_collection_6aa9EH",
-    "featured_collection_ymem3X"
+    "featured_collection_ymem3X",
+    "image_with_text_LTydEn",
+    "image_with_text_hTJrDk"
   ]
 }
