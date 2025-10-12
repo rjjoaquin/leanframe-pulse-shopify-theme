@@ -11,7 +11,7 @@
   endif
 %}
 
-<div class="{{ settings.container_width }} mx-auto flex flex-col lg:flex-row">
+<div class="{{ settings.container_width }} mx-auto flex flex-end flex-start flex-center flex-col lg:flex-row">
   <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
     {% if section.settings.image != blank -%}
       {{-
