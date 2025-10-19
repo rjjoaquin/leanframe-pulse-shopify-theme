@@ -90,7 +90,13 @@
   },
   "collection_grid": {
     "name": "Collection Grid",
-    "desktop_columns": "Columns"
+    "desktop_columns": "Columns",
+    "gap": {
+      "name": "Grid Gap",
+      "narrow": "Narrow",
+      "medium": "Medium",
+      "loose": "Loose"
+    }
   },
   "collection": {
     "name": "Collection"
