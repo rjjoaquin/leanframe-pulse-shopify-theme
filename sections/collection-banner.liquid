@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-center h-dvh w-dvw relative gap-4">
+<div class="flex flex-col items-center justify-center {{ section.settings.height }} w-dvw relative gap-4">
   <div class="w-full h-full object-cover absolute top-0 left-0" data-background-image>
     {% if section.settings.image != blank -%}
       {{- section.settings.image_picker | image_url: width: 1200, height: 1200 | image_tag: loading: 'eager' -}}
@@ -38,6 +38,26 @@
       "id": "image",
       "label": "t:collection_banner.image",
       "info": "t:collection_banner.image_info"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:collection_banner.height.name",
+      "options": [
+        {
+          "value": "h-40",
+          "label": "t:collection_banner.height.small"
+        },
+        {
+          "value": "h-80",
+          "label": "t:collection_banner.height.medium"
+        },
+        {
+          "value": "h-dvh",
+          "label": "t:collection_banner.height.large"
+        }
+      ],
+      "default": "h-dvh"
     }
   ]
 }

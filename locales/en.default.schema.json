@@ -234,6 +234,12 @@
     "subtitle": "Subtitle",
     "subtitle_info": "Add alternate subtitle to override collection description",
     "image": "Image",
-    "image_info": "Add alternative image to override featured image"
+    "image_info": "Add alternative image to override featured image",
+    "height": {
+      "name": "Banner Height",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    }
   }
 }
