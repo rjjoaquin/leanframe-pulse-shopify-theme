@@ -216,5 +216,14 @@
     "body_text": "Body Text",
     "button_text": "Button Text",
     "url": "url"
+  },
+  "collection_banner": {
+    "name": "Collection Banner",
+    "title": "Title",
+    "title_info": "Add alternate title to override collection title",
+    "subtitle": "Subtitle",
+    "subtitle_info": "Add alternate subtitle to override collection description",
+    "image": "Image",
+    "image_info": "Add alternative image to override featured image"
   }
 }

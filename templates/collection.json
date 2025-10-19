@@ -12,9 +12,11 @@
     "main": {
       "type": "collection",
       "settings": {}
+    },
+    "banner": {
+      "type": "collection-banner",
+      "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["collection-banner", "main"]
 }

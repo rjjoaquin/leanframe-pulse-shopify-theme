@@ -305,6 +305,9 @@
   .h-\[400px\] {
     height: 400px;
   }
+  .h-dvh {
+    height: 100dvh;
+  }
   .h-full {
     height: 100%;
   }
@@ -325,6 +328,9 @@
   }
   .w-\[60px\] {
     width: 60px;
+  }
+  .w-dvw {
+    width: 100dvw;
   }
   .w-full {
     width: 100%;
