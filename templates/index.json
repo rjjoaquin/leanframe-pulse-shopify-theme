@@ -88,6 +88,17 @@
         "button_text": "Button",
         "button_url": ""
       }
+    },
+    "rich_text_x9k93m": {
+      "type": "rich-text",
+      "name": "t:rich_text.name",
+      "settings": {
+        "title": "Heading",
+        "subtitle": "Subheading",
+        "body_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo felis, malesuada sed orci id, laoreet facilisis neque. Nullam ac tempus quam. Quisque in iaculis nibh. Morbi eleifend orci quis lacus luctus, eget efficitur sapien pretium</p>",
+        "button_text": "Go Now",
+        "url": ""
+      }
     }
   },
   "order": [
@@ -97,6 +108,7 @@
     "featured_collection_ymem3X",
     "image_with_text_LTydEn",
     "image_with_text_hTJrDk",
-    "image_with_text_Ft7d6h"
+    "image_with_text_Ft7d6h",
+    "rich_text_x9k93m"
   ]
 }
