@@ -11,12 +11,22 @@
   "sections": {
     "banner": {
       "type": "collection-banner",
-      "settings": {}
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "height": "h-80"
+      }
     },
     "main": {
       "type": "collection-grid",
-      "settings": {}
+      "settings": {
+        "columns": 4,
+        "gap": "4"
+      }
     }
   },
-  "order": ["banner", "main"]
+  "order": [
+    "banner",
+    "main"
+  ]
 }
