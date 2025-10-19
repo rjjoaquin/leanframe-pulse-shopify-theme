@@ -162,13 +162,8 @@
   },
   "image_with_text": {
     "name": "Image with Text",
-    "layout": "Layout",
-    "layout_info": "Choose whether the image takes up more space, balanced, or text takes up more space",
-    "layout_options": {
-      "image_bigger": "Image Bigger",
-      "balanced": "Balanced",
-      "text_area_bigger": "Text Area Bigger"
-    },
+    "image_area": "Image Area Size, %",
+    "text_area": "Text Area Size, %",
     "alignment": {
       "horizontal": "Horizontal",
       "vertical": "Vertical"

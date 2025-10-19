@@ -4,9 +4,13 @@
   @param {string} [url] - The URL to link to if button_type is "url".
   @param {string} text - The text to display on the button.
   @param {string} [custom_attributes] - Additional attributes to add to the button element.
+  @param {string} [max_width] - Max width of the button, use CSS units like px, rem, %, etc.
 {% enddoc %}
 {% liquid
-  assign button_class = 'block px-4 py-2 w-full text-center cursor-pointer'
+  assign button_class = 'inline-block px-4 py-2 w-full text-center cursor-pointer'
+  if max_width != blank
+    assign button_class = button_class | append: ' max-w-[' | append: max_width | append: ']'
+  endif
 %}
 {% if button_type == 'submit' %}
   <button class="{{ button_class }} {{ custom_class }}" type="submit" {{ custom_attributes }}>{{ text }}</button>

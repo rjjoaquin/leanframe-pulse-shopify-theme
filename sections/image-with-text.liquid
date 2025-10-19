@@ -1,42 +1,36 @@
-{% liquid
-  if section.settings.layout == 'text_area_bigger'
-    assign image_area_size = 'basis-sm'
-    assign text_area_size = 'basis-lg'
-  elsif section.settings.layout == 'image_bigger'
-    assign image_area_size = 'basis-lg'
-    assign text_area_size = 'basis-sm'
-  else
-    assign image_area_size = 'basis-[50%]'
-    assign text_area_size = 'basis-[50%]'
-  endif
-%}
-{% # Tailwind does not detect dynamic section classes, all classes here %}
-<div class="items-end items-start justify-end justify-start">
-  <div class="{{ settings.container_width }} mx-auto flex lg:flex-row">
-    <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover {% if section.settings.layout == "image_bigger" %}grow{% endif %}">
-      {% if section.settings.image != blank -%}
-        {{-
-          section.settings.image
-          | image_url: width: 1200, height: 1200
-          | image_tag: loading: 'lazy', alt: section.settings.title
-        -}}
-      {%- else %}
-        <img src width="1200" height="1200" alt="No Image">
-      {% endif %}
+{% style %}
+  #shopify-section-{{ section.id }} .image-background {
+    flex-basis: {{ section.settings.image_area }}%
+  }
+
+  #shopify-section-{{ section.id }} .image-background {
+    flex-basis: {{ section.settings.text_area }}%
+  }
+{% endstyle %}
+<div class="{{ settings.container_width }} mx-auto flex lg:flex-row">
+  <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover">
+    {% if section.settings.image != blank -%}
+      {{-
+        section.settings.image
+        | image_url: width: 1200, height: 1200
+        | image_tag: loading: 'lazy', alt: section.settings.title
+      -}}
+    {%- else %}
+      <img src width="1200" height="1200" alt="No Image">
+    {% endif %}
+  </div>
+  <div class="text-area flex flex-col gap-3 p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
+    <div>
+      <h2>{{ section.settings.title }}</h2>
     </div>
-    <div class="text-area flex flex-col gap-3 {{ text_area_size }} p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
-      <div>
-        <h2>{{ section.settings.title }}</h2>
-      </div>
-      <div>
-        <h3>{{ section.settings.subtitle }}</h3>
-      </div>
-      <div>
-        <p>{{ section.settings.body_text }}</p>
-      </div>
-      <div>
-        {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
-      </div>
+    <div>
+      <h3>{{ section.settings.subtitle }}</h3>
+    </div>
+    <div>
+      <p>{{ section.settings.body_text }}</p>
+    </div>
+    <div>
+      {% render 'button', button_type: 'url', text: section.settings.button_text, url: section.settings.button_url %}
     </div>
   </div>
 </div>
@@ -50,25 +44,22 @@
       "label": "t:image_with_text.image"
     },
     {
-      "type": "select",
-      "id": "layout",
-      "label": "t:image_with_text.layout",
-      "info": "t:image_with_text.layout_info",
-      "options": [
-        {
-          "value": "image_bigger",
-          "label": "t:image_with_text.layout_options.image_bigger"
-        },
-        {
-          "value": "balanced",
-          "label": "t:image_with_text.layout_options.balanced"
-        },
-        {
-          "value": "text_area_bigger",
-          "label": "t:image_with_text.layout_options.text_area_bigger"
-        }
-      ],
-      "default": "balanced"
+      "type": "range",
+      "id": "image_area",
+      "label": "t:image_with_text.image_area",
+      "min": 1,
+      "max": 100,
+      "step": 10,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "text_area",
+      "label": "t:image_with_text.text_area",
+      "min": 1,
+      "max": 100,
+      "step": 10,
+      "default": 50
     },
     {
       "type": "select",

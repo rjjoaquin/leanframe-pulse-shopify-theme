@@ -43,6 +43,8 @@ Use Tailwind as much as possible. Otherwise follow the below rules:\
 3. change .css to the liquid `{{ 'filesource.css' | asset_url }}` you created
 4. Use Alpine x-init or (not recommended) create the .js file in the section and add the script
 
+5. For section specific CSS that pulls from theme editor section settings, add style {% style %}
+
 This ensures no duplicate `<style>` is loaded into the page. Especially when inserting multiple instances of the same section
 
 # Development

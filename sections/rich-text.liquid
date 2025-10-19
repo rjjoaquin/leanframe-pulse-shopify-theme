@@ -1,25 +1,35 @@
-<div class="flex flex-col justify-{{- section.settings.layout }} gap-3 {{ settings.container_width }}">
+{% liquid
+  assign text_alignment = 'center'
+  if section.settings.layout == 'start'
+    assign text_alignment = 'left'
+  elsif section.settings.layout == 'end'
+    assign text_alignment = 'right'
+  endif
+%}
+<div class="flex flex-col {{ settings.container_width }} mx-auto justify-{{- section.settings.layout }} gap-3">
+  <span class="hidden visibility-hidden max-w-[250px]" aria-hidden="true"></span>
   {% if section.settings.title != blank %}
-    <div>
+    <div class="text-{{- text_alignment }}">
       <h2>{{ section.settings.title }}</h2>
     </div>
   {% endif %}
   {% if section.settings.subtitle != blank %}
-    <div>
+    <div class="text-{{- text_alignment }}">
       <h3>{{ section.settings.subtitle }}</h3>
     </div>
   {% endif %}
   {% if section.settings.body_text != blank %}
-    <div>
+    <div class="text-{{- text_alignment }}">
       {{ section.settings.body_text }}
     </div>
   {% endif %}
   {% if section.settings.button_text != blank %}
-    <div>
+    <div class="text-{{- text_alignment }}">
       {% render 'button',
         button_type: section.settings.button_text,
         text: section.settings.button_text,
-        url: section.settings.url
+        url: section.settings.url,
+        max_width: '250px'
       %}
     </div>
   {% endif %}
@@ -74,7 +84,7 @@
         },
         {
           "label": "t:rich_text.layout.right",
-          "value": "right"
+          "value": "end"
         }
       ]
     }
