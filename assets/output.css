@@ -297,6 +297,12 @@
   .h-14 {
     height: calc(var(--spacing) * 14);
   }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-80 {
+    height: calc(var(--spacing) * 80);
+  }
   .h-\[60px\] {
     height: 60px;
   }
