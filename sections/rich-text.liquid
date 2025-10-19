@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-3">
+<div class="flex flex-col justify-{{- section.settings.layout }} gap-3 {{ settings.container_width }}">
   {% if section.settings.title != blank %}
     <div>
       <h2>{{ section.settings.title }}</h2>
@@ -57,6 +57,26 @@
       "type": "url",
       "id": "url",
       "label": "t:rich_text.url"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "default": "center",
+      "label": "t:rich_text.layout.label",
+      "options": [
+        {
+          "label": "t:rich_text.layout.left",
+          "value": "start"
+        },
+        {
+          "label": "t:rich_text.layout.center",
+          "value": "center"
+        },
+        {
+          "label": "t:rich_text.layout.right",
+          "value": "right"
+        }
+      ]
     }
   ],
   "presets": [

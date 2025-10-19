@@ -215,7 +215,13 @@
     "subtitle": "Subheading",
     "body_text": "Body Text",
     "button_text": "Button Text",
-    "url": "url"
+    "url": "url",
+    "layout": {
+      "label": "Alignment",
+      "left": "Left",
+      "center": "Center",
+      "right": "Right"
+    }
   },
   "collection_banner": {
     "name": "Collection Banner",
