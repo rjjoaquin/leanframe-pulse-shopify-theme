@@ -51,7 +51,8 @@
       "type": "image-with-text",
       "name": "t:image_with_text.name",
       "settings": {
-        "layout": "balanced",
+        "image_area": 50,
+        "text_area": 50,
         "horizontal_alignment": "start",
         "vertical_alignment": "start",
         "title": "Balanced",
@@ -65,7 +66,8 @@
       "type": "image-with-text",
       "name": "t:image_with_text.name",
       "settings": {
-        "layout": "image_bigger",
+        "image_area": 70,
+        "text_area": 30,
         "horizontal_alignment": "start",
         "vertical_alignment": "start",
         "title": "Image Bigger",
@@ -79,7 +81,8 @@
       "type": "image-with-text",
       "name": "t:image_with_text.name",
       "settings": {
-        "layout": "text_area_bigger",
+        "image_area": 30,
+        "text_area": 70,
         "horizontal_alignment": "start",
         "vertical_alignment": "start",
         "title": "Text Biiger",
@@ -97,7 +100,8 @@
         "subtitle": "Subheading",
         "body_text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo felis, malesuada sed orci id, laoreet facilisis neque. Nullam ac tempus quam. Quisque in iaculis nibh. Morbi eleifend orci quis lacus luctus, eget efficitur sapien pretium</p>",
         "button_text": "Go Now",
-        "url": ""
+        "url": "",
+        "layout": "center"
       }
     }
   },
