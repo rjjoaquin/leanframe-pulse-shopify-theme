@@ -1,6 +1,6 @@
 {% style %}
   #shopify-section-{{ section.id }} .image-background {
-    flex-basis: {{ section.settings.image_area }}%
+    flex-basis: {{ section.settings.image_area }}%;
   }
 
   #shopify-section-{{ section.id }} .image-background {
@@ -8,7 +8,7 @@
   }
 {% endstyle %}
 <div class="{{ settings.container_width }} mx-auto flex lg:flex-row">
-  <div class="image-background {{ image_area_size }} w-full overflow-hidden object-cover">
+  <div class="image-background overflow-hidden object-cover {% if section.settings.image_area == 0 %}w-0 visibility-hidden{% else %}w-full{% endif %}">
     {% if section.settings.image != blank -%}
       {{-
         section.settings.image
@@ -19,7 +19,7 @@
       <img src width="1200" height="1200" alt="No Image">
     {% endif %}
   </div>
-  <div class="text-area flex flex-col gap-3 p-3 items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
+  <div class="text-area flex flex-col gap-3 {% if section.settings.text_area == 0 %}w-0 visibility-hidden{% else %}p-3{% endif %} items-{{ section.settings.horizontal_alignment }} justify-{{ section.settings.vertical_alignment }}">
     <div>
       <h2>{{ section.settings.title }}</h2>
     </div>
@@ -47,7 +47,7 @@
       "type": "range",
       "id": "image_area",
       "label": "t:image_with_text.image_area",
-      "min": 10,
+      "min": 0,
       "max": 100,
       "step": 10,
       "default": 50
@@ -56,7 +56,7 @@
       "type": "range",
       "id": "text_area",
       "label": "t:image_with_text.text_area",
-      "min": 10,
+      "min": 0,
       "max": 100,
       "step": 10,
       "default": 50
