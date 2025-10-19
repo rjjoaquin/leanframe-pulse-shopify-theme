@@ -374,32 +374,11 @@
   .max-w-full {
     max-width: 100%;
   }
-  .grow {
-    flex-grow: 1;
-  }
-  .basis-4xl {
-    flex-basis: var(--container-4xl);
-  }
-  .basis-6xl {
-    flex-basis: var(--container-6xl);
-  }
   .basis-\[40\%\] {
     flex-basis: 40%;
   }
-  .basis-\[50\%\] {
-    flex-basis: 50%;
-  }
   .basis-\[60\%\] {
     flex-basis: 60%;
-  }
-  .basis-lg {
-    flex-basis: var(--container-lg);
-  }
-  .basis-md {
-    flex-basis: var(--container-md);
-  }
-  .basis-sm {
-    flex-basis: var(--container-sm);
   }
   .basis-xs {
     flex-basis: var(--container-xs);
@@ -428,23 +407,11 @@
   .items-center {
     align-items: center;
   }
-  .items-end {
-    align-items: flex-end;
-  }
-  .items-start {
-    align-items: flex-start;
-  }
   .justify-between {
     justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .justify-start {
-    justify-content: flex-start;
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
