@@ -1,0 +1,24 @@
+<div class="collection-grid-wrapper">
+  <collection-grid
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-{{- section.settings.columns }}"
+  >
+    {% for product in collection.products %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </collection-grid>
+</div>
+{% schema %}
+{
+  "name": "t:collection_grid.name",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "t:collection_grid.desktop_columns",
+      "min": 3,
+      "max": 10,
+      "default": 4
+    }
+  ]
+}
+{% endschema %}

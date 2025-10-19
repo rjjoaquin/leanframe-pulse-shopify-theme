@@ -61,7 +61,6 @@
       "label": "Container"
     },
     "content": "Content",
-    "custom_section": "Custom section",
     "fonts": {
       "header_content": "Fonts",
       "base": "Base or Body font",
@@ -88,6 +87,10 @@
     "text": "Text",
     "theme": "Theme",
     "typography": "Typography"
+  },
+  "collection_grid": {
+    "name": "Collection Grid",
+    "desktop_columns": "Columns"
   },
   "collection": {
     "name": "Collection"
