@@ -1,12 +1,20 @@
 <div class="flex flex-col items-center justify-center h-dvh w-dvw relative gap-4">
   <div class="w-full h-full object-cover" data-background-image>
-    {% if section.settings.image != blank %}{{ section.settings.image_picker | image_url: width: 1200, height: 1200 | image_tag: loading: "eager" }}
+    {% if section.settings.image != blank -%}
+      {{- section.settings.image_picker | image_url: width: 1200, height: 1200 | image_tag: loading: 'eager' -}}
+    {%- endif %}
   </div>
   <div data-title>
-    <h1>{% if section.settings.title != blank %}{{ section.settings.title }}{% else %}{{ collection.title }}{% endif %}</h1>
+    <h1>
+      {% if section.settings.title != blank %}{{ section.settings.title }}{% else %}{{ collection.title }}{% endif %}
+    </h1>
   </div>
   <div data-sub-title>
-    {% if section.settings.subtitle != blank %}{{ section.settings.subtitle }}{% else %}{{ collection.description | truncate: 150 }}{% endif %}
+    {% if section.settings.subtitle != blank -%}
+      {{- section.settings.subtitle -}}
+    {%- else -%}
+      {{- collection.description | truncate: 150 -}}
+    {%- endif %}
   </div>
 </div>
 {% schema %}
