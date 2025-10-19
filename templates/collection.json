@@ -14,7 +14,7 @@
       "settings": {}
     },
     "main": {
-      "type": "collection",
+      "type": "collection-grid",
       "settings": {}
     }
   },
