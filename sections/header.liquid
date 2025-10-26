@@ -7,7 +7,7 @@
         <h1>{{- shop.name -}}</h1>
       {%- endif %}
     </div>
-    <div class="flex gap-3 items-center" data-header-menu>
+    <div class="flex gap-4 items-center" data-header-menu>
       {% for menu in section.settings.menu.links %}
         <a href="{{ menu.url }}">{{ menu.title }}</a>
       {% endfor %}
