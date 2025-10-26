@@ -7,7 +7,7 @@
     flex-basis: {{ section.settings.text_area }}%
   }
 {% endstyle %}
-<div class="{{ settings.container_width }} mx-auto flex flex-col lg:flex-row">
+<div class="{{ settings.container_width }} mx-auto flex flex-col lg:flex-row" data-image-with-text>
   <div class="image-background overflow-hidden object-cover {% if section.settings.image_area == 0 %}w-0 visibility-hidden{% else %}w-full{% endif %}">
     {% if section.settings.image != blank -%}
       {{-

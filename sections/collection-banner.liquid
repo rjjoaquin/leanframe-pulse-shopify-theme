@@ -1,4 +1,7 @@
-<div class="flex flex-col items-center justify-center {{ section.settings.height }} w-dvw relative gap-4">
+<div
+  class="flex flex-col items-center justify-center {{ section.settings.height }} w-dvw relative gap-4"
+  data-collection-banner
+>
   <div class="w-full h-full object-cover absolute top-0 left-0" data-background-image>
     {% if section.settings.image != blank -%}
       {{- section.settings.image_picker | image_url: width: 1200, height: 1200 | image_tag: loading: 'eager' -}}

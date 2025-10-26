@@ -6,7 +6,10 @@
     assign text_alignment = 'right'
   endif
 %}
-<div class="flex flex-col {{ settings.container_width }} mx-auto justify-{{- section.settings.layout }} gap-3">
+<div
+  class="flex flex-col {{ settings.container_width }} mx-auto justify-{{- section.settings.layout }} gap-3"
+  data-rich-text
+>
   <span class="hidden visibility-hidden max-w-[250px]" aria-hidden="true"></span>
   {% if section.settings.title != blank %}
     <div class="text-{{- text_alignment }}">
