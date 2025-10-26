@@ -7,11 +7,10 @@
         <h1>{{- shop.name -}}</h1>
       {%- endif %}
     </div>
-    <div class="flex gap-6 items-center" data-header-menu data-main-items="{{ section.settings.menu.links.size }}">
-      {% for menu in section.settings.menu.links %}
-        <a href="{{ menu.url }}">{{ menu.title }}</a>
-      {% endfor %}
-    </div>
+    {% if section.settings.enable_mega_menu == true %}
+    {% else %}
+      {% render 'menu', section: section %}
+    {% endif %}
     <div class="flex gap-3 items-center" data-header-icons>
       <div>
         <a href="{{ routes.cart_url }}">{% render 'icon', size: 'md', name: 'cart' %}</a>
@@ -40,7 +39,14 @@
     {
       "type": "link_list",
       "id": "menu",
-      "label": "t:header.main_menu"
+      "label": "t:header.main_menu",
+      "info": "t:header.main_menu_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mega_menu",
+      "label": "t:header.mega_menu.enable",
+      "default": false
     }
   ]
 }

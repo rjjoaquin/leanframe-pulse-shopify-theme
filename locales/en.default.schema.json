@@ -112,7 +112,11 @@
   "header": {
     "name": "Header",
     "main_menu": "Main Menu",
-    "logo": "Logo"
+    "main_menu_info": "For two level menu only.",
+    "logo": "Logo",
+    "mega_menu": {
+      "enable": "Enable Megamenu"
+    }
   },
   "labels": {
     "alignment": "Alignment",

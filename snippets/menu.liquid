@@ -1,0 +1,32 @@
+{% doc %}
+  @description Simple menu, up to two levels
+
+  @param {object} section - section object
+{% enddoc %}
+<div
+  class="hidden lg:flex gap-6 items-center"
+  data-header-menu
+  data-main-items="{{ section.settings.menu.links.size }}"
+>
+  {% for menu in section.settings.menu.links %}
+    <div data-menu-item>
+      <a
+        {% if menu.links.size > 0 %}
+          data-href="{{ menu.url }}"
+        {% else %}
+          href="{{ menu.url }}"
+        {% endif %}
+      >
+        {{- menu.title -}}
+      </a>
+      {% if menu.links.size > 0 %}
+        <div data-submenu>
+          {% for submenu in menu.links %}
+            <a href="{{ submenu.url }}">{{ submenu.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+<div class="block lg:hidden" data-mobile-menu data-main-items="{{ section.settings.menu.links.size }}"></div>
