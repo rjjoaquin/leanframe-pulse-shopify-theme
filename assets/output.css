@@ -8,6 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-white: #fff;
     --spacing: 0.25rem;
     --container-xs: 20rem;
     --container-2xl: 42rem;
@@ -219,6 +220,12 @@
   .top-3 {
     top: calc(var(--spacing) * 3);
   }
+  .top-\[100\%\] {
+    top: 100%;
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
   .bottom-\[100\%\] {
     bottom: 100%;
   }
@@ -227,6 +234,9 @@
   }
   .left-3 {
     left: calc(var(--spacing) * 3);
+  }
+  .z-1 {
+    z-index: 1;
   }
   .order-first {
     order: -9999;
@@ -335,6 +345,9 @@
   }
   .w-\[60px\] {
     width: 60px;
+  }
+  .w-\[400\%\] {
+    width: 400%;
   }
   .w-dvw {
     width: 100dvw;
@@ -462,6 +475,9 @@
   .bg-text {
     background-color: var(--color-text);
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
   .object-contain {
     -o-object-fit: contain;
        object-fit: contain;
@@ -499,6 +515,10 @@
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-sm {

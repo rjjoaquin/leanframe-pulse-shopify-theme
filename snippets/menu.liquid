@@ -9,18 +9,29 @@
   data-main-items="{{ section.settings.menu.links.size }}"
 >
   {% for menu in section.settings.menu.links %}
-    <div data-menu-item>
+    <div
+      class="relative"
+      data-menu-item
+      {% if menu.links.size %}
+        data-has-submenu
+      {% endif %}
+    >
       <a
         {% if menu.links.size > 0 %}
           data-href="{{ menu.url }}"
+          class="cursor-pointer"
         {% else %}
           href="{{ menu.url }}"
         {% endif %}
+        data-menu-link
       >
         {{- menu.title -}}
       </a>
       {% if menu.links.size > 0 %}
-        <div data-submenu>
+        <div
+          class="hidden flex-col gap-3 p-3 rounded-md shadow-md bg-(--background-color) z-1 absolute top-[100%] w-[400%]"
+          data-submenu
+        >
           {% for submenu in menu.links %}
             <a href="{{ submenu.url }}">{{ submenu.title }}</a>
           {% endfor %}
