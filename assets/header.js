@@ -7,7 +7,18 @@ class HeaderMenu extends HTMLElement {
   connectedCallback() {
     this.menuHasSubmenu.forEach((subMenu) => {
       subMenu.addEventListener("mouseover", () => {
-        this.openSubmenu(subMenu);
+        this.menuHasSubmenu.forEach((menu) => {
+          if (menu !== subMenu) {
+            this.closeSubmenu(menu);
+          } else {
+            if (
+              !subMenu
+                .querySelector("[data-submenu]")
+                .classList.contains("flex")
+            )
+              this.openSubmenu(subMenu);
+          }
+        });
       });
       subMenu.addEventListener("mouseout", () => {
         this.closeSubmenu(subMenu);
@@ -17,25 +28,29 @@ class HeaderMenu extends HTMLElement {
 
   openSubmenu(subMenu) {
     const sub = subMenu.querySelector("[data-submenu]");
-    sub.classList.remove("hidden");
-    sub.classList.add("flex");
-    if (sub.closest("[data-menu-item]")) {
-      const menuLink = sub
-        .closest("[data-menu-item]")
-        .querySelector("[data-menu-link]");
-      const dataHref = menuLink.getAttribute("data-href");
-      menuLink.setAttribute("href", dataHref);
+    if (sub) {
+      sub.classList.remove("hidden");
+      sub.classList.add("flex");
+      if (sub.closest("[data-menu-item]")) {
+        const menuLink = sub
+          .closest("[data-menu-item]")
+          .querySelector("[data-menu-link]");
+        const dataHref = menuLink.getAttribute("data-href");
+        menuLink.setAttribute("href", dataHref);
+      }
     }
   }
   closeSubmenu(subMenu) {
     const sub = subMenu.querySelector("[data-submenu]");
-    sub.classList.add("hidden");
-    sub.classList.remove("flex");
-    if (sub.closest("[data-menu-item]")) {
-      const menuLink = sub
-        .closest("[data-menu-item]")
-        .querySelector("[data-menu-link]");
-      menuLink.removeAttribute("href");
+    if (sub) {
+      sub.classList.add("hidden");
+      sub.classList.remove("flex");
+      if (sub.closest("[data-menu-item]")) {
+        const menuLink = sub
+          .closest("[data-menu-item]")
+          .querySelector("[data-menu-link]");
+        menuLink.removeAttribute("href");
+      }
     }
   }
 }

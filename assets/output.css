@@ -223,9 +223,6 @@
   .top-\[100\%\] {
     top: 100%;
   }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
   .bottom-\[100\%\] {
     bottom: 100%;
   }
@@ -474,9 +471,6 @@
   }
   .bg-text {
     background-color: var(--color-text);
-  }
-  .bg-white {
-    background-color: var(--color-white);
   }
   .object-contain {
     -o-object-fit: contain;
