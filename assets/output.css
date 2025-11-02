@@ -223,9 +223,6 @@
   .top-\[100\%\] {
     top: 100%;
   }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
   .bottom-\[100\%\] {
     bottom: 100%;
   }
@@ -475,9 +472,6 @@
   .bg-text {
     background-color: var(--color-text);
   }
-  .bg-white {
-    background-color: var(--color-white);
-  }
   .object-contain {
     -o-object-fit: contain;
        object-fit: contain;
@@ -547,6 +541,11 @@
   .lg\:hidden {
     @media (width >= 64rem) {
       display: none;
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .lg\:flex-row {
