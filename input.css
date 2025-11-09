@@ -116,4 +116,7 @@
     border: 1px solid var(--text-color);
     border-radius: var(--button-border-radius);
   }
+  details.mobile-menu summary::marker {
+    display: none;
+  }
 }

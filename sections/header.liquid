@@ -1,6 +1,6 @@
 <header>
   <header-menu>
-    <div class="header-wrapper flex {{ settings.container_width }} mx-auto py-4 gap-3 justify-between">
+    <div class="header-wrapper flex max-w-[90%] lg:{{ settings.container_width }} mx-auto py-4 gap-3 justify-between">
       <div data-site-title>
         {% if section.settings.logo != blank -%}
           {{- section.settings.logo | image_url | image_tag: width: 60, height: 60, preload: true -}}
@@ -8,11 +8,20 @@
           <h1>{{- shop.name -}}</h1>
         {%- endif %}
       </div>
-      {% if section.settings.enable_mega_menu == true %}
-      {% else %}
-        {% render 'menu', section: section %}
-      {% endif %}
-      <div class="flex gap-3 items-center" data-header-icons>
+      <div class="menu--desktop hidden lg:flex items-center">
+        {% if section.settings.enable_mega_menu == true %}
+          {% render 'megamenu', section: section %}
+        {% else %}
+          {% render 'menu', section: section %}
+        {% endif %}
+      </div>
+      <details class="menu--mobile mobile-menu flex lg:hidden items-center">
+        <summary class="block [&::-webkit-details-marker]:hidden">
+          {% render 'icon', size: 'md', name: 'menu' %}
+        </summary>
+        {% render 'mobile-menu', section: section %}
+      </details>
+      <div class="hidden lg:flex gap-3 items-center " data-header-icons>
         <div>
           <a href="{{ routes.cart_url }}">{% render 'icon', size: 'md', name: 'cart' %}</a>
         </div>

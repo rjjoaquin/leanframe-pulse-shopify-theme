@@ -2,6 +2,7 @@ class HeaderMenu extends HTMLElement {
   constructor() {
     super();
     this.menuHasSubmenu = this.querySelectorAll("[data-has-submenu]");
+    this.mobileMenu = this.querySelector(".mobile-menu");
   }
 
   connectedCallback() {
@@ -24,6 +25,11 @@ class HeaderMenu extends HTMLElement {
         this.closeSubmenu(subMenu);
       });
     });
+    this.mobileMenu
+      ?.querySelector(".close-button")
+      .addEventListener("click", () => {
+        this.toggleMobileMenu();
+      });
   }
 
   openSubmenu(subMenu) {
@@ -52,6 +58,10 @@ class HeaderMenu extends HTMLElement {
         menuLink.removeAttribute("href");
       }
     }
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenu.open = !this.mobileMenu.open;
   }
 }
 
