@@ -116,7 +116,37 @@
     border: 1px solid var(--text-color);
     border-radius: var(--button-border-radius);
   }
-  details.mobile-menu summary::marker {
-    display: none;
+
+  details.mobile-menu .mobile-menu-drawer {
+    right: -100%;
+    transition-property: right, content-visibility;
+    transition-duration: 0.5s;
+    transition-behavior: allow-discrete;
+  }
+  details.mobile-menu[open] .mobile-menu-drawer {
+    right: 0;
+  }
+
+  .mobile-menu-wrapper details summary {
+    display: inline-block;
+  }
+  .mobile-menu-wrapper details[open] summary svg {
+    transform: rotate(90deg);
+  }
+
+  .mobile-menu-wrapper details {
+    overflow: hidden;
+  }
+
+  .mobile-menu-wrapper details::details-content {
+    block-size: 0;
+    transition-property: content-visibility, block-size;
+    transition-duration: 0.5s;
+    transition-behavior: allow-discrete;
+  }
+
+  .mobile-menu-wrapper details[open]::details-content {
+    block-size: auto;
+    block-size: calc-size(auto, size);
   }
 }

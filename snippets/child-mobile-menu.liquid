@@ -1,0 +1,15 @@
+{% doc %}
+  @param {object} submenu - submenu object, example: menu.links
+{% enddoc %}
+<details>
+  <summary class="absolute top-0 right-0">
+    {% render 'icon', name: 'chevron-right', size: 'md', css: 'transition-all ease-in-out' %}
+  </summary>
+  <div class="flex flex-col mt-3 ml-3 gap-3">
+    {% for menu in submenu %}
+      <div>
+        <a href="{{ menu.url }}">{{ menu.title }}</a>
+      </div>
+    {% endfor %}
+  </div>
+</details>

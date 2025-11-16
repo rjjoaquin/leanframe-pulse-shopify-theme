@@ -3,43 +3,31 @@
 
   @param {object} section - section object
 {% enddoc %}
-<div class="bg-(--color-background) w-xs h-[100vh] p-4 shadow-md fixed top-0 right-0 z-2">
-  <div>
+<div class="mobile-menu-drawer bg-(--color-background) w-xs h-[100vh] p-4 shadow-md fixed top-0 z-2 flex flex-col gap-3">
+  <div class="text-right">
     <button
       class="close-button"
     >
       {% render 'icon', size: 'md', name: 'close' %}
     </button>
   </div>
-  <div class="mobile-menu-wrapper">
+  <div class="mobile-menu-wrapper flex flex-col gap-3">
     {% for menu in section.settings.menu.links %}
       <div
         class="relative"
         data-menu-item
-        {% if menu.links.size %}
+        {% if menu.links.size > 0 %}
           data-has-submenu
         {% endif %}
       >
         <a
-          {% if menu.links.size > 0 %}
-            data-href="{{ menu.url }}"
-            class="cursor-pointer"
-          {% else %}
-            href="{{ menu.url }}"
-          {% endif %}
+          href="{{ menu.url }}"
           data-menu-link
         >
           {{- menu.title -}}
         </a>
         {% if menu.links.size > 0 %}
-          <div
-            class="hidden flex-col gap-3 p-3 rounded-md shadow-md bg-(--background-color) z-1 absolute top-[100%] w-[400%]"
-            data-submenu
-          >
-            {% for submenu in menu.links %}
-              <a href="{{ submenu.url }}">{{ submenu.title }}</a>
-            {% endfor %}
-          </div>
+          {% render 'child-mobile-menu', submenu: menu.links %}
         {% endif %}
       </div>
     {% endfor %}
