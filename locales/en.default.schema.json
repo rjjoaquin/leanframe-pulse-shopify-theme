@@ -118,7 +118,6 @@
       "enable": "Enable Megamenu",
       "enable_info": "Only the top level menu will be used.",
       "item": {
-        "name": "Megamenu Item",
         "tag": "Item Identifier",
         "tag_info": "Add the title"
       }
