@@ -1,4 +1,4 @@
-<div data-mega-menu-item item-tag="{{ block.settings.id }}">
+<div data-mega-menu-item item-tag="{{ block.settings.tag }}">
   {% content_for 'blocks' %}
 </div>
 
@@ -8,7 +8,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "id",
+      "id": "tag",
       "label": "t:header.megamenu.item.tag",
       "info": "t:header.megamenu.item.tag_info"
     }
