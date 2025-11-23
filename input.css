@@ -119,6 +119,7 @@
 
   details.mobile-menu .mobile-menu-drawer {
     right: -100%;
+    right: calc(calc-size(auto, size) * -1);
     transition-property: right, content-visibility;
     transition-duration: 0.5s;
     transition-behavior: allow-discrete;

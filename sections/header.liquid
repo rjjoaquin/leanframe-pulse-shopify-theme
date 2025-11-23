@@ -1,6 +1,6 @@
 <header>
   <header-menu>
-    <div class="header-wrapper flex max-w-[90%] lg:{{ settings.container_width }} mx-auto py-4 gap-3 justify-between">
+    <div class="header-wrapper flex max-w-[90%] lg:{{ settings.container_width }} mx-auto py-4 gap-3 justify-between relative">
       <div data-site-title>
         {% if section.settings.logo != blank -%}
           {{- section.settings.logo | image_url | image_tag: width: 60, height: 60, preload: true -}}
@@ -9,11 +9,25 @@
         {%- endif %}
       </div>
       <div class="menu--desktop hidden lg:flex items-center">
-        {% if section.settings.enable_mega_menu == true %}
-          {% render 'megamenu', section: section %}
-        {% else %}
-          {% render 'menu', section: section %}
-        {% endif %}
+        <div
+          class="hidden lg:flex gap-6 items-center"
+          data-header-menu
+          data-main-items="{{ section.settings.menu.links.size }}"
+          x-data
+        >
+          {% if section.settings.enable_mega_menu == true %}
+            {% for link in section.settings.menu.links %}
+              <div data-top-level-item x-on:mouseover="console.log('this item is hovered')">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+            <div data-megamenu-items class="absolute top-full">
+              {% content_for 'blocks' %}
+            </div>
+          {% else %}
+            {% render 'menu', section: section %}
+          {% endif %}
+        </div>
       </div>
       <details class="menu--mobile mobile-menu flex lg:hidden items-center">
         <summary class="block [&::-webkit-details-marker]:hidden">
@@ -56,8 +70,14 @@
     {
       "type": "checkbox",
       "id": "enable_mega_menu",
-      "label": "t:header.mega_menu.enable",
+      "label": "t:header.megamenu.enable",
+      "info": "t:header.megamenu.enable_info",
       "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_megamenu_item"
     }
   ]
 }

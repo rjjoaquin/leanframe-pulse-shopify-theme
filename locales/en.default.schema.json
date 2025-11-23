@@ -114,8 +114,14 @@
     "main_menu": "Main Menu",
     "main_menu_info": "For two level menu only.",
     "logo": "Logo",
-    "mega_menu": {
-      "enable": "Enable Megamenu"
+    "megamenu": {
+      "enable": "Enable Megamenu",
+      "enable_info": "Only the top level menu will be used.",
+      "item": {
+        "name": "Megamenu Item",
+        "tag": "Item Identifier",
+        "tag_info": "Add the title"
+      }
     }
   },
   "labels": {

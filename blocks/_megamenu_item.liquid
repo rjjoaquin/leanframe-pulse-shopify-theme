@@ -1,0 +1,22 @@
+<div data-mega-menu-item item-tag="{{ block.settings.id }}">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "t:header.megamenu.item.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "id",
+      "label": "t:header.megamenu.item.tag",
+      "info": "t:header.megamenu.item.tag_info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_megamenu_slider"
+    }
+  ]
+}
+{% endschema %}

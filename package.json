@@ -13,7 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
-    "alpinejs": "^3.15.0",
     "autoprefixer": "^10.4.21",
     "baseline-browser-mapping": "^2.8.28",
     "postcss": "^8.5.6",

@@ -4,9 +4,10 @@
   @param {object} section - section object
 {% enddoc %}
 <div class="mobile-menu-drawer bg-(--color-background) w-xs h-[100vh] p-4 shadow-md fixed top-0 z-2 flex flex-col gap-3">
-  <div class="text-right">
+  <div class="text-right" x-data>
     <button
       class="close-button"
+      @click="document.dispatchEvent(new CustomEvent('MobileMenu:Close'))"
     >
       {% render 'icon', size: 'md', name: 'close' %}
     </button>
