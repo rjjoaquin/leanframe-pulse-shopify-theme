@@ -13,6 +13,19 @@
   "sections": {
     "header": {
       "type": "header",
+      "blocks": {
+        "megamenu_item_pmLENX": {
+          "type": "_megamenu_item",
+          "name": "Megamenu Item",
+          "settings": {
+            "tag": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "megamenu_item_pmLENX"
+      ],
       "settings": {
         "menu": "collection-mega-menu",
         "enable_mega_menu": true
