@@ -14,7 +14,8 @@
     "header": {
       "type": "header",
       "settings": {
-        "menu": "collection-mega-menu"
+        "menu": "collection-mega-menu",
+        "enable_mega_menu": true
       }
     }
   },
