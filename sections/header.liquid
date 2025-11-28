@@ -17,18 +17,27 @@
         >
           {% if section.settings.enable_mega_menu == true %}
             {% for link in section.settings.menu.links %}
-              <div data-top-level-item x-on:mouseover="console.log('this item is hovered')">
+              {% assgin downcase_title = link.title | downcase %}
+              <div data-top-level-item x-on:mouseover="{{ downcase_title }} = true">
                 <a href="{{ link.url }}">{{ link.title }}</a>
               </div>
-            {% endfor %}
-            <div
-              data-megamenu-items
-              class="absolute top-full"
-            >
               {% for block in section.blocks %}
-                {% content_for 'blocks' %}
+                {% assign downcase_tag = block.settings.tag | downcase %}
+                {% if downcase_tag contains downcase_title %}
+                  <div
+                    data-megamenu-item
+                    class="absolute top-full"
+                    x-show="{{ downcase_tag }}"
+                  >
+                    {% for block in section.blocks %}
+                      {% content_for 'blocks' %}
+                    {% endfor %}
+                  </div>
+                  {% break %}
+                {% endif %}
               {% endfor %}
-            </div>
+            {% endfor %}
+
           {% else %}
             {% render 'menu', section: section %}
           {% endif %}

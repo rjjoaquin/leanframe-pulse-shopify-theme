@@ -1,13 +1,4 @@
-<div
-  data-mega-menu-item
-  item-tag="{{ block.settings.tag | downcase }}"
-  {% if block.settings.tag != blank %}
-    x-show="{{ block.settings.tag | downcase }}"
-  {% else %}
-    class="hidden"
-  {% endif %}
-  x-transition
->
+<div>
   {% content_for 'blocks' %}
   The contents will show here
 </div>
