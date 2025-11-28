@@ -21,8 +21,14 @@
                 <a href="{{ link.url }}">{{ link.title }}</a>
               </div>
             {% endfor %}
-            <div data-megamenu-items class="absolute top-full">
-              {% content_for 'blocks' %}
+            <div
+              data-megamenu-items
+              class="absolute top-full"
+              x-data="{ {%- for link in section.settings.menu.links -%}{{- link.url -}}:false{% unless forloop.last %},{% endunless %}{%- endfor -%}}"
+            >
+              {% for block in section.blocks %}
+                {% content_for 'blocks' %}
+              {% endfor %}
             </div>
           {% else %}
             {% render 'menu', section: section %}
@@ -77,7 +83,7 @@
   ],
   "blocks": [
     {
-      "type": "_megamenu_item"
+      "type": "@theme"
     }
   ]
 }
