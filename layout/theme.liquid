@@ -10,8 +10,6 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
-    <script type="module" src="{{ 'modules.mjs' | asset_url }}" async></script>
-    <script src="{{ 'header.js' | asset_url }}" async></script>
   </head>
 
   <body class="font-base bg-(--background-color)">
@@ -20,5 +18,7 @@
     {{ content_for_layout }}
 
     {% sections 'footer-group' %}
+    <script type="module" src="{{ 'modules.mjs' | asset_url }}" defer></script>
+    <script src="{{ 'header.js' | asset_url }}" defer></script>
   </body>
 </html>

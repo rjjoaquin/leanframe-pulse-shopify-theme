@@ -13,11 +13,11 @@
           class="hidden lg:flex gap-6 items-center"
           data-header-menu
           data-main-items="{{ section.settings.menu.links.size }}"
-          x-data
+          x-data="{ {%- for link in section.settings.menu.links -%}{{- link.title | downcase -}}:false{% unless forloop.last %},{% endunless %}{%- endfor -%}}"
         >
           {% if section.settings.enable_mega_menu == true %}
             {% for link in section.settings.menu.links %}
-              <div data-top-level-item x-on:mouseover="console.log('this item is hovered')">
+              <div data-top-level-item x-on:mouseover="{{ link.title | downcase }} = false;">
                 <a href="{{ link.url }}">{{ link.title }}</a>
               </div>
             {% endfor %}
