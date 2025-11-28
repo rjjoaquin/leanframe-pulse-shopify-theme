@@ -4,6 +4,11 @@ class HeaderMenu extends HTMLElement {
     // this runs on the assumption that shopify has max three level menus
     this.mobileMenu = this.querySelector(".mobile-menu");
     this.closeButton = this.querySelector(".mobile-menu .close-button");
+
+    /* 
+    this.topLevelItems = this.querySelectorAll("[data-top-level-item]");
+    this.megaMenuItems = this.querySelector("[data-megamenu-items]");
+    */
   }
 
   connectedCallback() {
@@ -11,11 +16,35 @@ class HeaderMenu extends HTMLElement {
       this.mobileMenu.open = false;
       this.mobileMenu.classList.remove("open");
     });
+
+    /* 
+    if (this.topLevelItems && this.megaMenuItems) {
+      this.topLevelItems.forEach((item) => {
+        item.addEventListener("mouseover", (e) => {
+          const tag = e.target.getAttribute("data-tag");
+          if (tag) {
+            this.openMegamenuItem(tag);
+          }
+        });
+      });
+    }
+      */
   }
 
   toggleMobileMenu() {
     this.mobileMenu.open = !this.mobileMenu.open;
   }
+
+  /* 
+  openMegamenuItem(tag) {
+    if (this.megaMenuItems) {
+      this.megaMenuItems.classList.remove("z-[-999]", "h-0", "w-0");
+      this.megaMenuItems
+        .querySelector(`[item-tag="${tag}"`)
+        .classList.remove("hidden");
+    }
+  }
+    */
 }
 
 if (!customElements.get("header-menu")) {

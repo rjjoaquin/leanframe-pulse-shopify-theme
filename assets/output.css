@@ -251,6 +251,9 @@
   .z-10 {
     z-index: 10;
   }
+  .z-\[-999\] {
+    z-index: -999;
+  }
   .order-first {
     order: -9999;
   }
