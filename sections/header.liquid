@@ -25,6 +25,7 @@
               <div
                 data-top-level-item
                 data-tag="{{ link.title | downcase }}"
+                x-on:mouseover="{{ link.title | downcase }} = true"
               >
                 <a href="{{ link.url }}">{{ link.title }}</a>
               </div>
