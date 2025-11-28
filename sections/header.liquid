@@ -13,7 +13,7 @@
           class="hidden lg:flex gap-6 items-center"
           data-header-menu
           data-main-items="{{ section.settings.menu.links.size }}"
-          x-data
+          x-data="{ {%- for link in section.settings.menu.links -%}{{- link.title | downcase -}}:false{% unless forloop.last %},{% endunless %}{%- endfor -%}}"
         >
           {% if section.settings.enable_mega_menu == true %}
             {% for link in section.settings.menu.links %}
@@ -24,7 +24,6 @@
             <div
               data-megamenu-items
               class="absolute top-full"
-              x-data="{ {%- for link in section.settings.menu.links -%}{{- link.url -}}:false{% unless forloop.last %},{% endunless %}{%- endfor -%}}"
             >
               {% for block in section.blocks %}
                 {% content_for 'blocks' %}

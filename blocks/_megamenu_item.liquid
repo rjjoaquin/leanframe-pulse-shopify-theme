@@ -1,5 +1,11 @@
-<div data-mega-menu-item item-tag="{{ block.settings.tag }}">
+<div
+  data-mega-menu-item
+  item-tag="{{ block.settings.tag | downcase }}"
+  x-show="{{ block.settings.tag | downcase }}"
+  x-transition
+>
   {% content_for 'blocks' %}
+  The contents will show here
 </div>
 
 {% schema %}
