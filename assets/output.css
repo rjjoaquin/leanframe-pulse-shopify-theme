@@ -353,6 +353,9 @@
   .h-\[400px\] {
     height: 400px;
   }
+  .h-auto {
+    height: auto;
+  }
   .h-dvh {
     height: 100dvh;
   }
@@ -382,6 +385,9 @@
   }
   .w-\[60px\] {
     width: 60px;
+  }
+  .w-\[100vw\] {
+    width: 100vw;
   }
   .w-dvw {
     width: 100dvw;

@@ -1,8 +1,7 @@
 <div
   data-megamenu-item
   item-tag="{{ block.settings.tag | downcase }}"
-  x-show="{{ block.settings.tag | downcase }}"
-  x-transition
+  class="hidden"
 >
   {% content_for 'blocks' %}
   The contents will show here
